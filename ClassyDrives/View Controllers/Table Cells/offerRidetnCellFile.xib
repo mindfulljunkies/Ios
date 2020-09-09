@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="51" id="KGk-i7-Jjw" customClass="offerRidetnCellFile" customModule="ClassyDrives" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="51"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="50.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8M9-AM-xip">
+                        <rect key="frame" x="3" y="7" width="314" height="35"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Location Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4SO-Se-MEI">
+                                <rect key="frame" x="10" y="0.0" width="254" height="35"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c5S-Qc-maI">
+                                <rect key="frame" x="274" y="2.5" width="35" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="MSh-FD-9BO"/>
+                                    <constraint firstAttribute="height" constant="30" id="tf6-pJ-3ny"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="cancelBtnAtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="9Zi-3Y-V1Q"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cancel" translatesAutoresizingMaskIntoConstraints="NO" id="l68-mw-FTq">
+                                <rect key="frame" x="284" y="10" width="15" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="15" id="pR1-qu-FEs"/>
+                                    <constraint firstAttribute="height" constant="15" id="xX6-ny-a2g"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="frN-vz-DLI">
+                                <rect key="frame" x="0.0" y="0.0" width="264" height="35"/>
+                                <connections>
+                                    <action selector="addLocationBtnAtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ghj-d8-lLV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="l68-mw-FTq" firstAttribute="centerY" secondItem="c5S-Qc-maI" secondAttribute="centerY" id="50U-9Z-lPz"/>
+                            <constraint firstItem="c5S-Qc-maI" firstAttribute="leading" secondItem="frN-vz-DLI" secondAttribute="trailing" constant="10" id="A4C-bC-OGB"/>
+                            <constraint firstAttribute="trailing" secondItem="c5S-Qc-maI" secondAttribute="trailing" constant="5" id="AzP-9k-ujV"/>
+                            <constraint firstItem="4SO-Se-MEI" firstAttribute="top" secondItem="8M9-AM-xip" secondAttribute="top" id="Gz5-oT-2cL"/>
+                            <constraint firstItem="frN-vz-DLI" firstAttribute="top" secondItem="8M9-AM-xip" secondAttribute="top" id="H4n-Qq-rVC"/>
+                            <constraint firstAttribute="bottom" secondItem="frN-vz-DLI" secondAttribute="bottom" id="Kpm-BS-0fx"/>
+                            <constraint firstItem="c5S-Qc-maI" firstAttribute="leading" secondItem="4SO-Se-MEI" secondAttribute="trailing" constant="10" id="WoO-U7-7Pq"/>
+                            <constraint firstAttribute="height" constant="35" id="fcl-Be-6YH"/>
+                            <constraint firstAttribute="bottom" secondItem="4SO-Se-MEI" secondAttribute="bottom" id="hR4-5S-ke5"/>
+                            <constraint firstItem="l68-mw-FTq" firstAttribute="centerX" secondItem="c5S-Qc-maI" secondAttribute="centerX" id="ign-MU-8Ox"/>
+                            <constraint firstItem="frN-vz-DLI" firstAttribute="leading" secondItem="8M9-AM-xip" secondAttribute="leading" id="oHm-C6-xSX"/>
+                            <constraint firstItem="c5S-Qc-maI" firstAttribute="centerY" secondItem="8M9-AM-xip" secondAttribute="centerY" id="zAL-hS-sWh"/>
+                            <constraint firstItem="4SO-Se-MEI" firstAttribute="leading" secondItem="8M9-AM-xip" secondAttribute="leading" constant="10" id="zSk-19-y4p"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="8M9-AM-xip" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="5Y5-bQ-o6n"/>
+                    <constraint firstAttribute="bottom" secondItem="8M9-AM-xip" secondAttribute="bottom" constant="7" id="VqI-9F-2CC"/>
+                    <constraint firstItem="8M9-AM-xip" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="3" id="r5R-Ic-yMz"/>
+                    <constraint firstAttribute="trailing" secondItem="8M9-AM-xip" secondAttribute="trailing" constant="3" id="vnR-28-0Ad"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="bgview" destination="8M9-AM-xip" id="T9r-l7-wNu"/>
+                <outlet property="cancelImg" destination="l68-mw-FTq" id="mf7-Lc-JaF"/>
+                <outlet property="locationNameTF" destination="4SO-Se-MEI" id="jUb-yb-RoY"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="108.81696428571428"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="cancel" width="64" height="64"/>
+    </resources>
+</document>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ClassyDrives.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>armv7</string>
+				<string>arm64</string>
+			</array>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>8FFA34846D7908F8782E5ECD7CA4292A4FFC5634</string>
+				<key>dateExpires</key>
+				<string>25/06/20</string>
+				<key>type</key>
+				<string>iOS Development</string>
+			</dict>
+			<key>embeddedBinaries</key>
+			<array>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>armv7</string>
+						<string>arm64</string>
+					</array>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>8FFA34846D7908F8782E5ECD7CA4292A4FFC5634</string>
+						<key>dateExpires</key>
+						<string>25/06/20</string>
+						<key>type</key>
+						<string>iOS Development</string>
+					</dict>
+					<key>name</key>
+					<string>Alamofire.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>4TQTVK9BYR</string>
+						<key>name</key>
+						<string>Nathan Young</string>
+					</dict>
+				</dict>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>armv7</string>
+						<string>arm64</string>
+					</array>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>8FFA34846D7908F8782E5ECD7CA4292A4FFC5634</string>
+						<key>dateExpires</key>
+						<string>25/06/20</string>
+						<key>type</key>
+						<string>iOS Development</string>
+					</dict>
+					<key>name</key>
+					<string>FloatRatingView.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>4TQTVK9BYR</string>
+						<key>name</key>
+						<string>Nathan Young</string>
+					</dict>
+				</dict>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>armv7</string>
+						<string>arm64</string>
+					</array>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>8FFA34846D7908F8782E5ECD7CA4292A4FFC5634</string>
+						<key>dateExpires</key>
+						<string>25/06/20</string>
+						<key>type</key>
+						<string>iOS Development</string>
+					</dict>
+					<key>name</key>
+					<string>IQKeyboardManagerSwift.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>4TQTVK9BYR</string>
+						<key>name</key>
+						<string>Nathan Young</string>
+					</dict>
+				</dict>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>armv7</string>
+						<string>arm64</string>
+					</array>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>8FFA34846D7908F8782E5ECD7CA4292A4FFC5634</string>
+						<key>dateExpires</key>
+						<string>25/06/20</string>
+						<key>type</key>
+						<string>iOS Development</string>
+					</dict>
+					<key>name</key>
+					<string>SDWebImage.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>4TQTVK9BYR</string>
+						<key>name</key>
+						<string>Nathan Young</string>
+					</dict>
+				</dict>
+			</array>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>4TQTVK9BYR.jksSoftsolutions.ClassyDrives.com</string>
+				<key>com.apple.developer.team-identifier</key>
+				<string>4TQTVK9BYR</string>
+				<key>get-task-allow</key>
+				<true/>
+				<key>keychain-access-groups</key>
+				<array>
+					<string>4TQTVK9BYR.jksSoftsolutions.ClassyDrives.com</string>
+				</array>
+			</dict>
+			<key>name</key>
+			<string>ClassyDrives.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>db34e132-b859-4fdf-a272-c6492d81a0f7</string>
+				<key>name</key>
+				<string>iOS Team Provisioning Profile: jksSoftsolutions.ClassyDrives.com</string>
+			</dict>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>4TQTVK9BYR</string>
+				<key>name</key>
+				<string>Nathan Young</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
