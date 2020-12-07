@@ -18,6 +18,7 @@ class offerSelectMangeRideCell: UITableViewCell {
     @IBOutlet var dropAddress: UILabel!
     @IBOutlet var seat: UILabel!
     @IBOutlet var rejactBtn: UIButton!
+    @IBOutlet var profileBtn: UIButton!
     @IBOutlet var acceptBtn: UIButton!
     @IBOutlet var ratingView: FloatRatingView!
     @IBOutlet var requestResponseLbl: UILabel!

@@ -15,6 +15,7 @@ class ManageTableViewCell: UITableViewCell {
     @IBOutlet weak var stop1Location: UIView!
     @IBOutlet weak var stop2Location: UIView!
     @IBOutlet weak var mFrstLocImg: UIImageView!
+    @IBOutlet weak var profileBtn: UIButton!
     
     @IBOutlet weak var mSecLocImg: UIImageView!
     

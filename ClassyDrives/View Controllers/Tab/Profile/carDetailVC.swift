@@ -91,7 +91,7 @@ class carDetailVC: BaseVC{
 extension carDetailVC{
     func addCar() {
         Indicator.sharedInstance.showIndicator()
-        UserVM.sheard.addCar(car_name: carMakeTx.text!, car_model: carModelTxt.text!, car_year: carYearTxt.text!, car_image: "", car_user: userID, car_color: carColorTxt.text ?? "") { (success, message, error) in
+        UserVM.sheard.addCar(car_name: carMakeTx.text ?? "", car_model: carModelTxt.text!, car_year: carYearTxt.text!, car_image: "", car_user: userID, car_color: carColorTxt.text ?? "") { (success, message, error) in
             if error == nil{
                 Indicator.sharedInstance.hideIndicator()
                 if success{

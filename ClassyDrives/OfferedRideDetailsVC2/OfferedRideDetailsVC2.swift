@@ -472,7 +472,7 @@ self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .def
                     {
                         
                         
-                        self.mCarNameLbl.text = "\(String(describing: res?["car_name"] as? String)) - \(res?["car_model"] as? String ?? "")"
+                        self.mCarNameLbl.text = "\(String(describing: res?["car_name"] as? String ?? "")) - \(res?["car_model"] as? String ?? "")"
                     }
                     
                 
@@ -584,7 +584,7 @@ extension OfferedRideDetailsVC2: UITableViewDelegate,UITableViewDataSource{
                       otpView.isHidden = true
                       rideStatusView.isHidden = false
                       
-                      mPendingLbl.text = "Your ride has been started"
+                    //  mPendingLbl.text = "Your ride has been started"
                   }
                 else
              {
@@ -593,7 +593,7 @@ extension OfferedRideDetailsVC2: UITableViewDelegate,UITableViewDataSource{
                 {
                     cell.acceptBtn.isHidden = false
                     cell.rejactBtn.isHidden = false
-                    cell.acceptBtn.setTitle("Chat Rider", for: .normal)
+                    cell.acceptBtn.setTitle("Chat", for: .normal)
                     cell.rejactBtn.setTitle("Ride Started", for: .normal)
                     cancelBtn.setTitle("End Ride", for: .normal)
 
@@ -604,7 +604,7 @@ extension OfferedRideDetailsVC2: UITableViewDelegate,UITableViewDataSource{
                     cell.acceptBtn.isHidden = false
                     cell.rejactBtn.isHidden = false
 
-                    cell.acceptBtn.setTitle("Chat Rider", for: .normal)
+                    cell.acceptBtn.setTitle("Chat", for: .normal)
                     cell.rejactBtn.setTitle("Start Ride", for: .normal)
                     
 //                                    cell.requestResponseLbl.text = "Accepted"
@@ -706,7 +706,7 @@ mBookingReqLbl.isHidden = true
         selectIndex = index
         let bookStatus = UserVM.sheard.bookRideDetails[0].book[selectIndex].book_status
          if (bookStatus  ==  "1" && isReceived == false){
-            cell.acceptBtn.setTitle("Chat Rider", for: .normal)
+            cell.acceptBtn.setTitle("Chat", for: .normal)
             cell.rejactBtn.setTitle("Start Ride", for: .normal)
             let bookid = UserVM.sheard.bookRideDetails[0].book[selectIndex].book_id ?? ""
          let story = self.storyboard?.instantiateViewController(withIdentifier:"StartOTPVC") as! StartOTPVC

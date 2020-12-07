@@ -12,21 +12,18 @@ class BaseVC: UIViewController {
 
     
     
-    func rideOnlineStatus(onSuccess:@escaping(_ status:Bool)->Void)
+    func rideOnlineStatus(onSuccess:@escaping(_ status:Bool,_ value:String,_ m_booked:String)->Void)
     {
         
-        
         Indicator.sharedInstance.showIndicator()
-        UserVM.sheard.rideOnlineStatus(userid: userID) { (success, message, error) in
+        UserVM.sheard.rideOnlineStatus(userid: userID) { (m_booked,ride_id,success, message, error) in
             if error == nil{
                 Indicator.sharedInstance.hideIndicator()
                 if success{
-                    
-                onSuccess(success)
-                    
-                }
+                    onSuccess(success, ride_id,m_booked)
+                 }
                 else{
-                 onSuccess(success)
+                    onSuccess(success, ride_id,m_booked)
                 }
             }
             

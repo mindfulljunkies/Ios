@@ -13,17 +13,14 @@ class selectFindRideVC: UIViewController {
    
     @IBOutlet weak var mTimeLbl: UILabel!
     @IBOutlet weak var mCarColorLbl: UILabel!
-    
     @IBOutlet weak var mMinilbl4: UILabel!
     @IBOutlet weak var mMinilbl3: UILabel!
     @IBOutlet weak var mMinibl1: UILabel!
     @IBOutlet weak var mMinilbl2: UILabel!
-    
     @IBOutlet weak var mAddressLbl1: UILabel!
     @IBOutlet weak var mAddressLbl2: UILabel!
     @IBOutlet weak var mAddressLbl3: UILabel!
     @IBOutlet weak var mAddressLbl4: UILabel!
-    
     @IBOutlet var userImg: UIImageView!
     @IBOutlet var userName: UILabel!
     @IBOutlet var dateLbl: UILabel!
@@ -36,7 +33,6 @@ class selectFindRideVC: UIViewController {
     @IBOutlet var continueBtn: UIButton!
     @IBOutlet var ratingView: FloatRatingView!
     @IBOutlet var carDataSet: UILabel!
-    
     @IBOutlet weak var round2: UILabel!
     @IBOutlet weak var round3: UILabel!
     @IBOutlet weak var img1: UIImageView!
@@ -45,6 +41,13 @@ class selectFindRideVC: UIViewController {
     var indexValue = Int()
     var seatAbility = ""
  
+    var rideFromAdd = String()
+    var rideFromLat = String()
+    var rideFromLong = String()
+    var rideToAdd = String()
+    var rideToLat = String()
+    var rideToLong = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -61,12 +64,10 @@ class selectFindRideVC: UIViewController {
         
         let url = UserVM.sheard.allRideDetails[indexValue].pic
         userImg.sd_setImage(with: URL(string: url!), placeholderImage: #imageLiteral(resourceName: "userpaceholder"))
-        
-        
-        
         userName.text = UserVM.sheard.allRideDetails[indexValue].firstname
         dateLbl.text = UserVM.sheard.allRideDetails[indexValue].ride_date
-        priceLbl.text = "$ \(UserVM.sheard.allRideDetails[indexValue].ride_amount!)"
+        
+        priceLbl.text = "$ \(UserVM.sheard.allRideDetails[indexValue].ride_amount ?? 0)"
       //  picLbl.text = UserVM.sheard.allRideDetails[indexValue].ride_from_address
       //  dropLbl.text = UserVM.sheard.allRideDetails[indexValue].ride_to_address
         seatsLbl.text = String(UserVM.sheard.allRideDetails[indexValue].ride_seat!)
@@ -109,9 +110,9 @@ class selectFindRideVC: UIViewController {
         if UserVM.sheard.allRideDetails[indexValue].dropup_distance != ""{
             self.mMinilbl4.text = "\(UserVM.sheard.allRideDetails[indexValue].dropup_distance ?? "") Miles from your arrival"
         }
-        if UserVM.sheard.allRideDetails[indexValue].ride_date != ""{
-            self.dateLbl.text = UserVM.sheard.allRideDetails[indexValue].ride_date.getCurrentShortDate()
-        }
+//        if UserVM.sheard.allRideDetails[indexValue].ride_date != ""{
+//            self.dateLbl.text = UserVM.sheard.allRideDetails[indexValue].ride_date.getCurrentShortDate()
+//        }
         if UserVM.sheard.allRideDetails[indexValue].ride_time != ""{
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "HH:mm:ss"
@@ -129,7 +130,7 @@ class selectFindRideVC: UIViewController {
             self.mCarColorLbl.text = UserVM.sheard.allRideDetails[indexValue].car_color
         }
         if UserVM.sheard.allRideDetails[indexValue].car_type != nil{
-            self.carTypeLbl.text = "\(UserVM.sheard.allRideDetails[indexValue].car_model ?? "")"
+            self.carTypeLbl.text = "\(UserVM.sheard.allRideDetails[indexValue].car_name ?? "") - \(UserVM.sheard.allRideDetails[indexValue].car_model ?? "")"
         }
     }
     @IBOutlet weak var lbl2HEight: NSLayoutConstraint!
@@ -152,6 +153,14 @@ class selectFindRideVC: UIViewController {
             let story = self.storyboard?.instantiateViewController(withIdentifier: "bookRideVC") as! bookRideVC
                    story.seats = UserVM.sheard.allRideDetails[indexValue].ride_seat!
                    story.index = indexValue
+            
+            story.rideFromAdd = rideFromAdd
+            story.rideFromLat = rideFromLat
+            
+            story.rideFromLong = rideFromLong
+            story.rideToAdd = rideToAdd
+            story.rideToLat = rideToLat
+            story.rideToLong = rideToLong
                    story.avilableSeatCount = String(UserVM.sheard.allRideDetails[indexValue].ride_seat!)
                    
                    

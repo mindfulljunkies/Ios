@@ -59,8 +59,8 @@ public class CarDetail {
         car_color = dictionary["car_color"] as? String
         car_id = dictionary["car_id"] as? String
         car_image = dictionary["car_image"] as? String
-        car_model = dictionary["car_model"] as? String
-        car_name = dictionary["car_name"] as? String
+        car_model = dictionary["car_model"] as? String ?? ""
+        car_name = dictionary["car_name"] as? String ?? ""
         car_user = dictionary["car_user"] as? Int
         car_year = dictionary["car_year"] as? Int
         created_date = dictionary["created_date"] as? String

@@ -78,15 +78,23 @@ class ChatingVC: UIViewController {
         let autoID = nodeFromID.childByAutoId()
     
         let date = Date()
+        
+       
+      
         let new_timestamp = Int(date.timeIntervalSince1970 * 1000.0)
         let dict: [String:Any] = ["author": "SukhFromMJ",
-                                  "isSame":false,
+                                  "isSame":false,"id":userID,
                                   "message":mTxt.text ?? "",
                                   "otherUserImage":otherUserImage,
                                   "recepient_id":otherUserId,
                                   "sender_id": userID,"timestamp": "\(new_timestamp)","type":"text","userImage":""
         ]
         autoID.updateChildValues(dict)
+        
+        let prntRef  = Database.database().reference().child("ChatHistory").child("\(messageNode)")
+            prntRef.updateChildValues(["last_message_timeStamp":"\(new_timestamp)"])
+        prntRef.updateChildValues(["last_message":"\(mTxt.text ?? "")"])
+        
       //  autoID.setValue(dict)
         mTxt.text! = ""
         self.getChat()
@@ -149,19 +157,25 @@ extension ChatingVC: UITableViewDelegate, UITableViewDataSource
         let userID = UserDefaults.standard.value(forKey: "LoginID") as? String ?? ""
 
         let chatArrId = chatArry[indexPath.row].sender_id
-        print(chatArrId)
+       
         print(String(describing: userID))
        if String(describing: chatArrId!) != String(describing: userID){
             let cell = mChatingTableVw.dequeueReusableCell(withIdentifier: "ChatingTableViewCellID", for: indexPath) as! ChatingTableViewCell
             cell.mReciverLbl.text = chatArry[indexPath.row].message ?? ""
         if let timeResult = Double(chatArry[indexPath.row].timestamp!) {
-            let date = Date(timeIntervalSince1970: timeResult)
+            let date = Date(timeIntervalSince1970: timeResult/1000)
             let dateFormatter = DateFormatter()
             dateFormatter.timeStyle = DateFormatter.Style.short //Set time style
 //            dateFormatter.dateStyle = DateFormatter.Style.medium //Set date style
             dateFormatter.timeZone = .current
             let localDate = dateFormatter.string(from: date)
             cell.mReciverTimeLbl.text! = localDate
+            
+            
+            
+            
+            
+            
         }
 
               return cell

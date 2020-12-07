@@ -158,7 +158,7 @@ public class RideDetail {
         charge_id = dictionary["charge_id"] as? Int
         city = dictionary["city"] as? String
         comment = dictionary["comment"] as? String
-        car_model = dictionary["car_model"] as? String
+        car_model = dictionary["car_model"] as? String ?? ""
 
         contact = dictionary["contact"] as? Int
         detour = dictionary["detour"] as? String
@@ -193,7 +193,7 @@ public class RideDetail {
         ride_from_long = dictionary["ride_from_long"] as? String
         ride_from_long2 = dictionary["ride_from_long2"] as? String
         ride_from_long3 = dictionary["ride_from_long3"] as? String
-        car_name = dictionary["car_name"] as? String
+        car_name = dictionary["car_name"] as? String ?? ""
 
                
         

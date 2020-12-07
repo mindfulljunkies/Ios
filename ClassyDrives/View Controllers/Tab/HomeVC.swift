@@ -55,7 +55,8 @@ class HomeVC: BaseVC, UITextFieldDelegate, OfferRideDelegate{
     var lat5 = String()
     
    
-    
+    var newRide:String = ""
+    var am_i_booked:String = ""
     var long = String()
     var long1 = String()
     var long2 = String()
@@ -119,7 +120,7 @@ class HomeVC: BaseVC, UITextFieldDelegate, OfferRideDelegate{
              let rideId = UserDefaults.standard.value(forKey: "rideID") as? String ?? ""
              let userId = UserDefaults.standard.value(forKey: "LoginID") as? String ?? ""
              Indicator.sharedInstance.showIndicator()
-                    UserVM.sheard.panicApi(user_id: userId , ride_id: rideId, lattitude: latii, longitude: longi) { (success, message, error) in
+                    UserVM.sheard.panicApi(user_id: userId , ride_id: newRide, lattitude: latii, longitude: longi) { (success, message, error) in
                         if error == nil{
                             Indicator.sharedInstance.hideIndicator()
                             if success{
@@ -153,8 +154,10 @@ class HomeVC: BaseVC, UITextFieldDelegate, OfferRideDelegate{
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.rideOnlineStatus { (status) in
+        self.rideOnlineStatus { (status,ride_id,m_booked)  in
             if status{
+                self.newRide = ride_id
+                self.am_i_booked = m_booked
                 self.currentRideBtn.isHidden = false
                 self.sosBtn.isHidden = false
             }else{
@@ -220,13 +223,24 @@ class HomeVC: BaseVC, UITextFieldDelegate, OfferRideDelegate{
     }
     func curentRide()
        {
-                     let story = self.storyboard?.instantiateViewController(withIdentifier: "OfferedRideDetailsVCID") as! OfferedRideDetailsVC
-                  let rideId =   UserDefaults.standard.value(forKey: "rideID") as? String
-                  let bookID =  UserDefaults.standard.value(forKey: "bookID") as? String
+                     let story = self.storyboard?.instantiateViewController(withIdentifier: "OfferedRideDetailsCurrentVC") as! OfferedRideDetailsCurrentVC
+               //   let rideId =   UserDefaults.standard.value(forKey: "rideID") as? String
+//                  let bookID =  UserDefaults.standard.value(forKey: "bookID") as? String
         story.isFromView = true
     //                 story.islocal = UserVM.sheard.allRidesDetails[0].bookedRide[indexPath.row].is_local_ride ?? ""
-                     story.rideId = rideId ?? ""
-                     story.bookid = bookID ?? ""
+        
+        if am_i_booked == "1"{
+            story.bookid = ""
+            //story.isFromCurrentRide = true
+            story.rideId = newRide
+        }else{
+            story.rideId = newRide
+            //story.isFromCurrentRide = true
+            story.bookid  = ""
+        }
+        
+                   //  story.rideId = newRide
+                     
     //                 story.isReceived = true
          //            story.cancelReason = "usercancel"
                      self.navigationController?.pushViewController(story, animated: true)
@@ -241,9 +255,15 @@ class HomeVC: BaseVC, UITextFieldDelegate, OfferRideDelegate{
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == dateTF{
             self.date.datePickerMode = .date
+            if #available(iOS 14.0, *) {
+                self.date.preferredDatePickerStyle = .wheels
+                
+            } else {
+                // Fallback on earlier versions
+            }
             self.date.minimumDate = Date()
-            self.date.backgroundColor = .black
-            self.date.setValue(UIColor.white, forKeyPath: "textColor")
+            self.date.backgroundColor = .white
+          //  self.date.setValue(UIColor.white, forKeyPath: "textColor")
             let toolbar = UIToolbar()
             toolbar.sizeToFit()
             toolbar.backgroundColor = .black
@@ -258,9 +278,15 @@ class HomeVC: BaseVC, UITextFieldDelegate, OfferRideDelegate{
         }
         else if textField == offerDateTF{
             self.date.datePickerMode = .date
+            if #available(iOS 14.0, *) {
+                self.date.preferredDatePickerStyle = .wheels
+                
+            } else {
+                // Fallback on earlier versions
+            }
             self.date.minimumDate = Date()
-            self.date.backgroundColor = .black
-            self.date.setValue(UIColor.white, forKeyPath: "textColor")
+            self.date.backgroundColor = .white
+           //x self.date.setValue(UIColor.white, forKeyPath: "textColor")
             let toolbar = UIToolbar()
             toolbar.sizeToFit()
             toolbar.backgroundColor = .black
@@ -279,15 +305,29 @@ class HomeVC: BaseVC, UITextFieldDelegate, OfferRideDelegate{
             
             print(Date().toString(format: "MM-dd-yyyy"))
             if offerDateTF.text ?? "" == Date().toString(format: "MM-dd-yyyy"){
+                
                 self.date1.minimumDate = Date()
                 self.date1.datePickerMode = .time
+                if #available(iOS 14.0, *) {
+                    self.date1.preferredDatePickerStyle = .wheels
+                    
+                } else {
+                    // Fallback on earlier versions
+                }
             }else{
                 date1 = UIDatePicker()
                 self.date1.datePickerMode = .time
+                if #available(iOS 14.0, *) {
+                    self.date1.preferredDatePickerStyle = .wheels
+                    
+                } else {
+                    // Fallback on earlier versions
+                }
+                
             }
             
-            self.date1.backgroundColor = .black
-            self.date1.setValue(UIColor.white, forKeyPath: "textColor")
+            self.date1.backgroundColor = .white
+         //   self.date1.setValue(UIColor.white, forKeyPath: "textColor")
             let toolbar1 = UIToolbar()
             toolbar1.sizeToFit()
             toolbar1.backgroundColor = .black
@@ -474,7 +514,7 @@ class HomeVC: BaseVC, UITextFieldDelegate, OfferRideDelegate{
             
             story.address3 = address2
             story.rideLat3 = lat2
-            story.rideLong2 = long2
+            story.rideLong3 = long2
             
             story.rideToAdd = offerDropTF.text!
             story.rideToLat = offerDropLat
@@ -588,6 +628,8 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource{
 
 //MARK: - API Methods
 extension HomeVC{
+    
+    
     func findRide(fromAdd: String, toAdd: String, fromLat: String, fromLong: String, to_lat: String, to_Long: String) {
         
         UserVM.sheard.allRideDetails.removeAll()
@@ -600,6 +642,18 @@ extension HomeVC{
                     let story = self.storyboard?.instantiateViewController(withIdentifier:"allRides") as! allRides
                     story.topvalue = "\(fromAdd)"
                     story.bottomValue = toAdd
+                    story.rideFromAdd = fromAdd
+                    story.rideFromLat = fromLat
+                    
+                    story.rideFromLong = fromLong
+                    story.rideToAdd = toAdd
+                    story.rideToLat = to_lat
+                    story.rideToLong = to_Long
+                    
+                    
+                    
+                    
+                    
                     story.date = self.dateTF.text!
                     self.navigationController?.pushViewController(story, animated: true)
                 }else{

@@ -46,7 +46,7 @@ class OtpVC: BaseVC {
 extension OtpVC {
     func OtpAPI() {
         Indicator.sharedInstance.showIndicator()
-        UserVM.sheard.registorUser(firstname: firstName, lastname: lastName, email: email, password: password, device_type: "?", device_token: "?", dob: dob, city: city, state: state, zip: zip, bio: "test", mobile: mobile ,apple_id : apple_id) { (success, message, error) in
+        UserVM.sheard.registorUser(firstname: firstName, lastname: lastName, email: email, password: password, device_type: "?", device_token: instanceToken, dob: dob, city: city, state: state, zip: zip, bio: "test", mobile: mobile ,apple_id : apple_id) { (success, message, error) in
             if error == nil{
                 Indicator.sharedInstance.hideIndicator()
                 if success{
@@ -87,12 +87,13 @@ extension OtpVC {
             if error == nil{
                 Indicator.sharedInstance.hideIndicator()
                 if success{
-
-                    UserDefaults.standard.set(message, forKey: "LoginUser")
-
-                    let story = self.storyboard?.instantiateViewController(withIdentifier:"MainTabVC") as! MainTabVC
-                    DataManager.isLogin = true
-                    self.navigationController?.pushViewController(story, animated: true)
+ UserDefaults.standard.set(message, forKey: "LoginUser")
+                    
+                    
+                    let story = self.storyboard?.instantiateViewController(withIdentifier:"UserLicenessVerifyVC1") as! UserLicenessVerifyVC1
+                                  self.navigationController?.pushViewController(story, animated: true)
+                    
+                    
                 }else{
                     self.showAlert(message: message)
                 }

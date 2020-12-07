@@ -68,8 +68,7 @@ class SignInVC: BaseVC,GIDSignInDelegate {
                     let fullname = userData!["name"] as! String
                     let useremail = userData!["email"] as! String
                     let lastname = userData!["family_name"] as! String
-                 
-                    self.socialoginUser(email : useremail,socialtoken : "",firstname : username,lastname : lastname, loginType: 2)
+                  self.socialoginUser(email : useremail,socialtoken : "",firstname : username,lastname : lastname, loginType: 2)
                     
                 } catch {
                     NSLog("Account Information could not be loaded")
@@ -245,7 +244,7 @@ extension SignInVC {
         let deviceID  =  UIDevice.current.identifierForVendor!.uuidString
         
         let email1 = email
-        UserVM.sheard.socialLogin(email : email,device_type : "ios",device_token : deviceID,socialtoken : socialtoken,firstname : firstname,lastname : lastname,login_type : loginType, response: { (success, message,email ,mobile, error) in
+        UserVM.sheard.socialLogin(email : email,device_type : "ios",device_token : instanceToken,socialtoken : socialtoken,firstname : firstname,lastname : lastname,login_type : loginType, response: { (success, message,email ,mobile, error) in
             if error == nil{
                 Indicator.sharedInstance.hideIndicator()
                 if success{

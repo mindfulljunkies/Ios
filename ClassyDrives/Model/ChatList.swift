@@ -12,6 +12,7 @@ public class Chat {
     public var createTime: String?
     public var id: String?
     public var last_message_timeStamp: String?
+    public var last_message:String?
     public var last_message_user_id: String?
     public var occupant_id: String?
     public var type: String?
@@ -57,7 +58,7 @@ public class Chat {
         last_message_timeStamp = dictionary["last_message_timeStamp"] as? String
         last_message_user_id = dictionary["last_message_user_id"] as? String
         occupant_id = dictionary["occupant_id"] as? String
-   
+        last_message = dictionary["last_message"] as? String
         if (dictionary["user_data"]) != nil{
             if (dictionary["user_data"]) is NSNull{
                 return

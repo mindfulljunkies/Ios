@@ -20,7 +20,7 @@ class allRides: UIViewController {
    var rideFromLong = String()
    var rideToAdd = String()
    var rideToLat = String()
-    var rideToLong = String()
+   var rideToLong = String()
    var ridedate = String()
     
     var isFromLocalRide = false
@@ -47,6 +47,18 @@ class allRides: UIViewController {
     @IBAction func backBtnAtn(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
+    
+    @IBAction func profileBtnAtn(_ sender: UIButton) {
+        let indexValue = sender.tag
+        let storyboard = UIStoryboard(name: "DriverProfile", bundle: nil)
+       if let destinationvc = storyboard.instantiateViewController(withIdentifier: "DriverVC") as? DriverVC
+        
+       {
+        let manageDict = UserVM.sheard.allRideDetails[indexValue]
+        destinationvc.userId = manageDict.ride_user ?? ""
+        self.navigationController?.pushViewController(destinationvc, animated: true)
+        }
+    }
 }
 
 extension allRides: UITableViewDelegate, UITableViewDataSource{
@@ -63,13 +75,14 @@ extension allRides: UITableViewDelegate, UITableViewDataSource{
             cell.nameLbl.text! = manageDict.firstname!
             cell.picLbl.text = manageDict.ride_from_address
             cell.dropLbl.text = manageDict.ride_to_address
+        cell.profileBtn.tag = indexPath.row
         cell.dateLbl.text =  manageDict.ride_date?.convertDateFormatMy(inputDate: manageDict.ride_date ?? "")
             let times = manageDict.ride_time
             cell.timeLbl.text = timeConversion12(time24: times ?? "")
             
             cell.priceLbl.text = "$\(manageDict.ride_amount!)"
         
-      //  cell.mRatingVw.rating = Double(manageDict.rating) as? Double ?? 0.0
+        cell.mRatingVw.rating = Double(manageDict.rating ?? "0.0") ?? 0.0
         if manageDict.ride_from_address2 != ""{
             cell.mLblExpand.text = manageDict.ride_from_address2 ?? ""
             cell.stop1Location.isHidden = false
@@ -95,6 +108,16 @@ cell.stop2Location.isHidden = true
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let story = self.storyboard?.instantiateViewController(withIdentifier: "selectFindRideVC") as! selectFindRideVC
         story.indexValue = indexPath.row
+        
+        
+        
+        story.rideFromAdd = rideFromAdd
+        story.rideFromLat = rideFromLat
+        
+        story.rideFromLong = rideFromLong
+        story.rideToAdd = rideToAdd
+        story.rideToLat = rideToLat
+        story.rideToLong = rideToLong
         self.navigationController?.pushViewController(story, animated: true)
     }
     

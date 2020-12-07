@@ -18,6 +18,7 @@ class UserProfileVC: BaseVC {
     @IBOutlet var nameTXt: UILabel!
     @IBOutlet var emailTxt: UILabel!
     @IBOutlet var descTxt: UILabel!
+    @IBOutlet var verifyLbl: UILabel!
     @IBOutlet var phoneTxt: UILabel!
     @IBOutlet var petImage: UIImageView!
     @IBOutlet var smokingImg: UIImageView!
@@ -26,6 +27,11 @@ class UserProfileVC: BaseVC {
     @IBOutlet weak var mPhoneVerfiedLbkl: UILabel!
     @IBOutlet weak var mSSNVerfiedLbl: UILabel!
     @IBOutlet weak var mDrivingLicLbl: UILabel!
+    @IBOutlet weak var viewSSN: UIView!
+    
+    @IBOutlet weak var ssnBtn: UIButton!
+    @IBOutlet weak var licenseBtn: UIButton!
+    @IBOutlet weak var viewDriving: UIView!
 
     var isSSNVerfied : Bool = false
     var isDriveLicVerfied : Bool = false
@@ -87,27 +93,42 @@ class UserProfileVC: BaseVC {
         }
         if let lvl = UserVM.sheard.profileDetails[0].profiledata[0].experienceLevel{
             mExpLbl.text = "\(lvl)"
+        
         }
+        
+        
+//        if UserVM.sheard.profileDetails[0].profiledata[0].driving_status == "0" && UserVM.sheard.profileDetails[0].profiledata[0].ssn_status == "0"{
+//            verifyLbl.text = ""
+//        }else{
+//            verifyLbl.text = "Verified Document"
+//        }
+//
         if UserVM.sheard.profileDetails[0].profiledata[0].ssn_status == "0"{
             mSSNVerfiedLbl.text = "Verify"
             mSSNVerfiedLbl.textColor = #colorLiteral(red: 0.6666666667, green: 0.6666666667, blue: 0.6666666667, alpha: 1)
             isSSNVerfied = false
+            viewSSN.isHidden = false
+            ssnBtn.isUserInteractionEnabled = true
         }else{
             mSSNVerfiedLbl.text = "Verified"
             mSSNVerfiedLbl.textColor = #colorLiteral(red: 0.4470588235, green: 0.7019607843, blue: 0.05882352941, alpha: 1)
             isSSNVerfied = true
-
+            ssnBtn.isUserInteractionEnabled = false
+            viewSSN.isHidden = false
         }
         
         if UserVM.sheard.profileDetails[0].profiledata[0].driving_status == "0"{
             mDrivingLicLbl.text = "Verify"
             mDrivingLicLbl.textColor = #colorLiteral(red: 0.6666666667, green: 0.6666666667, blue: 0.6666666667, alpha: 1)
             isDriveLicVerfied = false
+            viewDriving.isHidden = false
+            licenseBtn.isUserInteractionEnabled = true
         }else{
             mDrivingLicLbl.text = "Verified"
             mDrivingLicLbl.textColor = #colorLiteral(red: 0.4470588235, green: 0.7019607843, blue: 0.05882352941, alpha: 1)
             isDriveLicVerfied = true
-
+            viewDriving.isHidden = false
+            licenseBtn.isUserInteractionEnabled = false
         }
         
     }

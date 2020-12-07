@@ -62,7 +62,7 @@ enum UserServices: APIService{
     case CarYear(make : String,model : String)
     
     //MarK:- Add User Address
-    case Addadress(work_type : String,user_id : String,favourite_address : String)
+    case Addadress(work_type : String,user_id : String,favourite_address : String,address:String,work_address:String)
     case panicApi(user_id : String,ride_id : String, latitude : String,longitude : String)
     case completeDriver(user_id : String,ride_id : String)
     case walletInfo(user_id : String)
@@ -73,6 +73,10 @@ enum UserServices: APIService{
     case VerifyLicence(user_id : String,first_name : String,last_name : String,state : String,doi : String,dob : String,license_number : String)
 case deleteUser(user_id : String,reason : String,comment : String)
 
+    
+    case  feedBack(rate_from_user:String,rate_to_user:String,rate_star:String,rate_comment:String,is_clean:String,is_friendly:String,is_safe:String,is_punctual:String,like_dislike:String)
+    
+      
     var path: String{
         var path = ""
         
@@ -196,6 +200,8 @@ case deleteUser(user_id : String,reason : String,comment : String)
             path = BASE_URL.appending("walletInfo")
            case .deleteUser :
            path = BASE_URL.appending("deleteuser")
+           case .feedBack :
+            path = BASE_URL.appending("rating")
             
             case .rideOnlineStatus :
             path = BASE_URL.appending("rideOnlineStatus")
@@ -484,10 +490,13 @@ case deleteUser(user_id : String,reason : String,comment : String)
             parameterDict["model"] = model
             resource = Resource(method: .post, parameters: parameterDict, headers: nil)
             
-        case  let .Addadress( work_type,  user_id,  favourite_address):
+        case  let .Addadress( work_type,  user_id,  favourite_address,address,work_address):
             parameterDict["work_type"] = work_type
             parameterDict["user_id"] = user_id
             parameterDict["favourite_address"] = favourite_address
+            parameterDict["work_address"] = work_address
+            parameterDict["address"] = address
+            
             resource = Resource(method: .post, parameters: parameterDict, headers: nil)
       
         case let  .VerifyLicence(  user_id,   first_name,   last_name,  state,  doi,  dob,  license_number):
@@ -554,7 +563,25 @@ parameterDict["email"] = email
             parameterDict["reason"] = reason
             resource = Resource(method: .post, parameters: parameterDict, headers: nil)
 
-        
+        case .feedBack(let rate_from_user, let rate_to_user, let rate_star,let  rate_comment,let  is_clean,let  is_friendly, let is_safe,let  is_punctual,let  like_dislike):
+            parameterDict["rate_from_user"] = rate_from_user
+            
+            parameterDict["rate_to_user"] = rate_to_user
+            parameterDict["rate_star"] = rate_star
+            
+            parameterDict["rate_comment"] = rate_comment
+            parameterDict["is_clean"] = is_clean
+            
+            parameterDict["is_friendly"] = is_friendly
+            parameterDict["is_safe"] = is_safe
+            
+            
+            parameterDict["is_punctual"] = is_punctual
+            parameterDict["like_dislike"] = like_dislike
+            
+            resource = Resource(method: .post, parameters: parameterDict, headers: nil)
+      
+            
         case .rideOnlineStatus(let user_id):
                    
                    parameterDict[APIKeys.kuser_id] = user_id
@@ -978,8 +1005,8 @@ extension APIManager{
         }, failure: failureCallback)
     }
     
-    class func addAddress(work_type : String,user_id : String,favourite_address : String,successCallback: @escaping JSONDictionaryResponseCallback, failureCallback: @escaping APIServiceFailureCallback) {
-        UserServices.Addadress(work_type : work_type,user_id : user_id,favourite_address : favourite_address).request(success: { (response) in
+    class func addAddress(work_type : String,user_id : String,favourite_address : String,address:String,work_address:String,successCallback: @escaping JSONDictionaryResponseCallback, failureCallback: @escaping APIServiceFailureCallback) {
+        UserServices.Addadress(work_type : work_type,user_id : user_id,favourite_address : favourite_address,address : address,work_address : work_address).request(success: { (response) in
             if let responseDict = response as? JSONDictionary {
                 successCallback(responseDict)
             }else {
@@ -1048,6 +1075,19 @@ extension APIManager{
     }
     class func deleteUser(userId: String, reason: String,comment : String , successCallback: @escaping JSONDictionaryResponseCallback, failureCallback: @escaping APIServiceFailureCallback) {
         UserServices.deleteUser(user_id: userId,reason: reason,comment : comment).request(success: { (response) in
+            if let responseDict = response as? JSONDictionary {
+                successCallback(responseDict)
+            }
+            else {
+                successCallback([:])
+            }
+        }, failure: failureCallback)
+    }
+    
+    
+    
+    class func feedBack(rate_from_user: String, rate_to_user: String, rate_star: String, rate_comment: String, is_clean: String, is_friendly: String, is_safe: String, is_punctual: String, like_dislike: String , successCallback: @escaping JSONDictionaryResponseCallback, failureCallback: @escaping APIServiceFailureCallback) {
+        UserServices.feedBack(rate_from_user: rate_from_user, rate_to_user: rate_to_user, rate_star: rate_star, rate_comment: rate_comment, is_clean: is_clean, is_friendly: is_friendly, is_safe: is_safe, is_punctual: is_punctual, like_dislike: like_dislike).request(success: { (response) in
             if let responseDict = response as? JSONDictionary {
                 successCallback(responseDict)
             }

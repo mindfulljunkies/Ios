@@ -53,7 +53,9 @@ struct allRide {
     var car_color : String!
      var car_type: String!
     var car_model: String!
-
+    var car_name:String!
+    
+    
     var ride_to_address: String!
     var ride_to_lat: String!
     var ride_to_long: String!
@@ -387,6 +389,10 @@ extension UserVM{
                 let car_color = rData.value(forKey: APIKeys.kcar_color) as? String ?? ""
                 let car_type = rData.value(forKey: APIKeys.kcar_type) as? String ?? ""
                 let car_model = rData.value(forKey: APIKeys.kcar_model) as? String ?? ""
+                
+                let car_name = rData.value(forKey: APIKeys.kcar_name) as? String ?? ""
+                
+                
 
                 let bankid = rData.value(forKey: APIKeys.kbank_id) as? String ?? ""
                 let detour = rData.value(forKey: APIKeys.kdetour) as? String ?? ""
@@ -423,7 +429,7 @@ extension UserVM{
                 
                 let kIsSeatsAvailable = rData.value(forKey: APIKeys.kIsSeatsAvailable) as? Int ?? 0
                 
-                allRideDetails.append(allRide.init(rideid: rideid, carId: carId, bankid: bankid, detour: detour, ride_user: ride_user, ride_from_address: ride_from_address,ride_from_address2: ride_from_address2,ride_from_address3:ride_from_address3 , ride_from_lat: ride_from_lat, ride_from_long: ride_from_long, car_color:car_color, car_type: car_type,car_model :car_model, ride_to_address: ride_to_address, ride_to_lat: ride_to_lat, ride_to_long: ride_to_long, ride_date: ride_date, ride_time: ride_time, ride_seat: ride_seat, ride_amount: ride_amount, firstname: firstname, mobile: mobile, carmaker: carmaker, pic: pic, distance: distance, elapsedtime: eTime, rating: rate,ride_duration : ride_duration, ride_distance : ride_distance,pickup_distance:pickup_distance,dropup_distance:dropup_distance,discountAmount:discountAmount,applied_id: applied_id,is_already_booked: kIsAleradyBooked,is_seats_available: kIsSeatsAvailable ))
+                allRideDetails.append(allRide.init(rideid: rideid, carId: carId, bankid: bankid, detour: detour, ride_user: ride_user, ride_from_address: ride_from_address,ride_from_address2: ride_from_address2,ride_from_address3:ride_from_address3 , ride_from_lat: ride_from_lat, ride_from_long: ride_from_long, car_color:car_color, car_type: car_type,car_model :car_model,car_name:car_name ,ride_to_address: ride_to_address, ride_to_lat: ride_to_lat, ride_to_long: ride_to_long, ride_date: ride_date, ride_time: ride_time, ride_seat: ride_seat, ride_amount: ride_amount, firstname: firstname, mobile: mobile, carmaker: carmaker, pic: pic, distance: distance, elapsedtime: eTime, rating: rate,ride_duration : ride_duration, ride_distance : ride_distance,pickup_distance:pickup_distance,dropup_distance:dropup_distance,discountAmount:discountAmount,applied_id: applied_id,is_already_booked: kIsAleradyBooked,is_seats_available: kIsSeatsAvailable ))
                 
             }
         }

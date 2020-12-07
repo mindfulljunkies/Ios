@@ -700,8 +700,8 @@ class UserVM {
         }
     }
     
-    func addAddress(work_type : String,user_id : String,favourite_address : String,response: @escaping responseCallBack) {
-        APIManager.addAddress(work_type : work_type,user_id : user_id,favourite_address : favourite_address,successCallback: { (responseDict) in
+    func addAddress(work_type : String,user_id : String,favourite_address : String,address:String,work_address:String,response: @escaping responseCallBack) {
+        APIManager.addAddress(work_type : work_type,user_id : user_id,favourite_address : favourite_address,address: address,work_address: work_address,successCallback: { (responseDict) in
             let success = responseDict?[APIKeys.kstatus] as! Int
             let message = responseDict?[APIKeys.kmessage] as? String
             if success ==  1{
@@ -744,6 +744,7 @@ class UserVM {
        }
     }//
     
+    
     func deleteUser(userid : String,reason : String,comment : String,response: @escaping responseCallBack) {
         APIManager.deleteUser(userId: userid,reason: reason,comment: comment,successCallback: { (responseDict) in
            let success = responseDict?[APIKeys.kstatus] as! Int
@@ -759,18 +760,37 @@ class UserVM {
        }
     }//
     
-    func rideOnlineStatus(userid : String,response: @escaping responseCallBack) {
+    
+    
+    func feedback(rate_from_user: String, rate_to_user: String, rate_star: String, rate_comment: String, is_clean: String, is_friendly: String, is_safe: String, is_punctual: String, like_dislike: String,response: @escaping responseCallBack) {
+        APIManager.feedBack(rate_from_user: rate_from_user, rate_to_user: rate_to_user, rate_star: rate_star, rate_comment: rate_comment, is_clean: is_clean, is_friendly: is_friendly, is_safe: is_safe, is_punctual: is_punctual, like_dislike: like_dislike,successCallback: { (responseDict) in
+           let success = responseDict?[APIKeys.kstatus] as! Int
+           let message = responseDict?[APIKeys.kmessage] as? String
+           if success ==  1{
+//               self.parseRatingData(responseDict: responseDict!)
+               response(true, message, nil)
+           }else{
+               response(false, message, nil)
+           }
+       }) { (errorReason, error) in
+           response(false, nil, APIManager.errorForNetworkErrorReason(errorReason: errorReason!))
+       }
+    }
+    
+    func rideOnlineStatus(userid : String,response: @escaping responseCallBack2) {
         APIManager.rideOnlineStatus(userId: userid,successCallback: { (responseDict) in
                let success = responseDict?[APIKeys.kstatus] as! Int
                let message = responseDict?[APIKeys.kmessage] as? String
                if success ==  1{
     //               self.parseRatingData(responseDict: responseDict!)
-                   response(true, message, nil)
+                let rideId = responseDict?["ride_id"] as? String ?? ""
+                let am_i_booked = String(responseDict?["am_i_booked"] as? Int ?? 0)
+                response(am_i_booked,rideId,true, message, nil)
                }else{
-                   response(false, message, nil)
+                   response("","",false, message, nil)
                }
            }) { (errorReason, error) in
-               response(false, nil, APIManager.errorForNetworkErrorReason(errorReason: errorReason!))
+               response("","",false, nil, APIManager.errorForNetworkErrorReason(errorReason: errorReason!))
            }
         }//
     

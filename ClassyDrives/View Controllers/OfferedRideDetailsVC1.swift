@@ -24,7 +24,7 @@ class OfferedRideDetailsVC1: BaseVC {
     @IBOutlet weak var rideStatusView: UIView!
     @IBOutlet weak var amountLbl: UILabel!
     @IBOutlet weak var mBookingReqLbl: UILabel!
-    
+    var bookAmount:String = ""
     @IBOutlet weak var mPendingLbl: UILabel!
     @IBOutlet weak var mRatingVw: FloatRatingView!
     @IBOutlet weak var rideAprrovedLbl: UILabel!
@@ -70,6 +70,7 @@ class OfferedRideDetailsVC1: BaseVC {
     var rideDetailDict : RideDetail?
     var bookid = String()
     var islocal = ""
+    var rideNewId:String = "0"
     var rideId = String()
     var selectIndex = Int()
 //    var bookDetail : RideDetail?
@@ -117,7 +118,7 @@ class OfferedRideDetailsVC1: BaseVC {
        mFirstLocationLbl.text = rideDetailDict?.ride_from_address ?? ""
        mUserLbl2.text = rideDetailDict?.bio ?? ""
        mSecLoctionLbl.text = rideDetailDict?.ride_to_address ?? ""
-       mPriceLbl.text = "$ \(rideDetailDict?.book_amount ?? "")"
+       mPriceLbl.text = "$ \(bookAmount)"
 //        if (self.isReceived == false)
 //                           {
         self.mCarNameLbl.text = "\(rideDetailDict?.car_name ?? "") - \(rideDetailDict?.car_model ?? "")"
@@ -282,10 +283,6 @@ class OfferedRideDetailsVC1: BaseVC {
     }
     func convertDateFormater(_ date: String) -> String
     {
-        
-        
-      
-        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let date = dateFormatter.date(from: date)
@@ -311,13 +308,13 @@ class OfferedRideDetailsVC1: BaseVC {
      {
         mTableVw.isHidden = true
         }
-        
+        rideDetails()
+        fromApiData()
 self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.isHidden = false
-        rideDetails()
-        fromApiData()
+        
         // Do any additional setup after loading the view.
         if isReceived == false{
             if isFromView == true{
@@ -368,8 +365,31 @@ self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .def
             if error == nil{
                 Indicator.sharedInstance.hideIndicator()
                 if success{
+                    var largest : Int
+                    var smallest : Int
+                    let rideDetail_id = Int(userID) ?? 0
+                    let bookDetail_id = Int(self.rideNewId) ?? 0
+                    let booking_id =  Int(self.bookid) ?? 0
+                    
+                    largest = rideDetail_id > bookDetail_id ? rideDetail_id : bookDetail_id
+                    smallest = rideDetail_id < bookDetail_id ? rideDetail_id : bookDetail_id
+                    let largestString = String(largest)
+                    let smallestString = String(smallest)
+                    let bookString = String(booking_id)
+                    let value = largestString + smallestString + bookString
+                    print(value)
+                    
+                    
+                    let prntRef  = Database.database().reference().child("ChatHistory").child("\(value)")
+                        prntRef.removeValue { error, _ in
+                            
+                            print(error)
+                        }
                     
                 self.showAlert(message: message)
+                    
+                    
+                    
                 }else{
                     self.showAlert(message: message)
                 }
@@ -403,6 +423,7 @@ self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .def
         
         if (sender.titleLabel?.text == "End Ride" && isReceived == true)
         {
+            print("\(rideNewId)")
             self.cancelRideApiApi(action: "4")
         }
            else if (sender.titleLabel?.text == "End Ride" && isReceived == false)
@@ -429,6 +450,13 @@ self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .def
             story.cancelRide = true
             self.navigationController?.pushViewController(story, animated: true)
 
+        }else if(sender.titleLabel?.text == "Give Feedback"){
+            let story = self.storyboard?.instantiateViewController(withIdentifier:"FeedbackVC1") as! FeedbackVC1
+            
+            story.userName =  mUserNameLbl.text ?? ""
+            story.currentUserId = "\(rideDetailDict?.ride_user ?? "0")"
+            
+            self.navigationController?.pushViewController(story, animated: true)
         }
     }
     
@@ -450,9 +478,8 @@ self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .def
     
     @IBAction func mViewProfileBtnAct(_ sender: Any) {
         let storyboard = UIStoryboard(name: "DriverProfile", bundle: nil)
-       if let destinationvc = storyboard.instantiateViewController(withIdentifier: "DriverVC") as? DriverVC
-        
-       {
+        if let destinationvc = storyboard.instantiateViewController(withIdentifier: "DriverVC") as? DriverVC
+        {
         destinationvc.userId = rideDetailDict?.ride_user ?? ""
         self.navigationController?.pushViewController(destinationvc, animated: true)
         }
@@ -467,14 +494,19 @@ self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .def
                 if success{
                     print(response)
                     let res = response?["ride_detail"] as? Dictionary<String,Any>
-                    print(res)
+                    
+                    let res1 = response?["ride_detail"] as? [String:Any]
+                    
+                    print(res1)
+                    
+                    self.rideNewId = res?["ride_user"] as? String ?? "0"
                     if (self.isReceived == true || self.isFromView == true)
                     {
-                        self.mCarNameLbl.text = "\(String(describing: res?["car_name"] as? String)) - \(String(describing: res?["car_model"] as? String))"
+                        self.mCarNameLbl.text = "\(String(describing: res?["car_name"] as? String ?? "")) - \(String(describing: res?["car_model"] as? String ?? ""))"
                     }
                     
                     
-                    self.rideDetailDict = RideDetail.init(dictionary: res as! NSDictionary)
+                    self.rideDetailDict = RideDetail.init(dictionary: res! as NSDictionary)
                     self.mTableVw.reloadData()
                     if self.isReceived == false{
                     if UserVM.sheard.bookRideDetails.count != 0{
@@ -549,10 +581,13 @@ extension OfferedRideDetailsVC1: UITableViewDelegate,UITableViewDataSource{
         cell.ratingView.rating = Double(UserVM.sheard.bookRideDetails[0].book[indexPath.row].rating) ?? 0.0
        
          cell.acceptBtn.isHidden = false
-        cell.rejactBtn.isHidden = false
-        cell.acceptBtn.tag = indexPath.row //+ 5000
-        cell.rejactBtn.tag = indexPath.row // + 6000
-        cell.acceptBtn.addTarget(self, action: #selector(self.acceptBtnActn(_:)), for: .touchUpInside)
+         cell.rejactBtn.isHidden = false
+         cell.profileBtn.tag = indexPath.row
+         cell.acceptBtn.tag = indexPath.row //+ 5000
+         cell.rejactBtn.tag = indexPath.row // + 6000
+         cell.acceptBtn.addTarget(self, action: #selector(self.acceptBtnActn(_:)), for: .touchUpInside)
+        
+        cell.profileBtn.addTarget(self, action: #selector(self.profileBtnActn(_:)), for: .touchUpInside)
         cell.rejactBtn.addTarget(self, action: #selector(self.rejectBtnActn(_:)), for: .touchUpInside)
         
         let bookStatus = UserVM.sheard.bookRideDetails[0].book[indexPath.row].book_status ?? ""
@@ -589,7 +624,7 @@ extension OfferedRideDetailsVC1: UITableViewDelegate,UITableViewDataSource{
                     cell.acceptBtn.isHidden = false
                     cell.rejactBtn.isHidden = false
                     cell.rejactBtn.isUserInteractionEnabled = false
-                    cell.acceptBtn.setTitle("Chat Rider", for: .normal)
+                    cell.acceptBtn.setTitle("Chat", for: .normal)
                     cell.rejactBtn.setTitle("Ride Started", for: .normal)
                     cancelBtn.setTitle("End Ride", for: .normal)
                     
@@ -611,8 +646,8 @@ extension OfferedRideDetailsVC1: UITableViewDelegate,UITableViewDataSource{
                 {
                     cell.acceptBtn.isHidden = false
                     cell.rejactBtn.isHidden = false
-cell.rejactBtn.isUserInteractionEnabled = true
-                    cell.acceptBtn.setTitle("Chat Rider", for: .normal)
+                    cell.rejactBtn.isUserInteractionEnabled = true
+                    cell.acceptBtn.setTitle("Chat", for: .normal)
                     cell.rejactBtn.setTitle("Start Ride", for: .normal)
                     
 //                                    cell.requestResponseLbl.text = "Accepted"
@@ -666,10 +701,22 @@ cell.rejactBtn.isUserInteractionEnabled = true
     }
     
     
+    
+    @objc func profileBtnActn(_ sender: UIButton){
+        let index = sender.tag
+        
+        let storyboard = UIStoryboard(name: "DriverProfile", bundle: nil)
+        if let destinationvc = storyboard.instantiateViewController(withIdentifier: "DriverVC") as? DriverVC
+        {
+        destinationvc.userId = UserVM.sheard.bookRideDetails[0].book[index].book_user ?? ""
+        self.navigationController?.pushViewController(destinationvc, animated: true)
+        }
+    }
+    
     @objc func acceptBtnActn(_ sender: UIButton){
         let index = sender.tag
         selectIndex = index
-        if  UserVM.sheard.bookRideDetails[0].book[index].book_status == "1"{
+        if  UserVM.sheard.bookRideDetails[0].book[index].book_status == "1" || UserVM.sheard.bookRideDetails[0].book[index].book_status == "5"{
            
             var largest : Int
             var smallest : Int
@@ -694,7 +741,7 @@ cell.rejactBtn.isUserInteractionEnabled = true
             self.navigationController?.pushViewController(vc, animated: true)
         }else{
             
-            acceptRejectRideApi(actionType : "1")
+            acceptRejectRideApi(actionType : "1",index:selectIndex)
 
         }
         
@@ -716,7 +763,7 @@ cell.rejactBtn.isUserInteractionEnabled = true
         selectIndex = index
         let bookStatus = UserVM.sheard.bookRideDetails[0].book[selectIndex].book_status
          if (bookStatus  ==  "1" && isReceived == false){
-            cell.acceptBtn.setTitle("Chat Rider", for: .normal)
+            cell.acceptBtn.setTitle("Chat", for: .normal)
             cell.rejactBtn.setTitle("Start Ride", for: .normal)
             let bookid = UserVM.sheard.bookRideDetails[0].book[selectIndex].book_id ?? ""
          let story = self.storyboard?.instantiateViewController(withIdentifier:"StartOTPVC") as! StartOTPVC
@@ -734,7 +781,7 @@ cell.rejactBtn.isUserInteractionEnabled = true
         //    checkRide(actionType: "1")
         }
     }
-    func acceptRejectRideApi(actionType : String){
+    func acceptRejectRideApi(actionType : String,index:Int = 0){
         Indicator.sharedInstance.showIndicator()
         let bookid = UserVM.sheard.bookRideDetails[0].book[selectIndex].book_id ?? ""
         let rideid = UserVM.sheard.bookRideDetails[0].ride.ride_id ?? ""
@@ -753,34 +800,36 @@ cell.rejactBtn.isUserInteractionEnabled = true
                     }
                     
                     
-//                    let bookStatus = UserVM.sheard.bookRideDetails[0].book[self.selectIndex].book_status
+                    let bookStatus = UserVM.sheard.bookRideDetails[0].book[self.selectIndex].book_status
+
 //
+                    if (bookStatus  ==  "1"){
+                     
+                        self.bookDict = UserVM.sheard.bookRideDetails[0].book[index]
+                         self.createRelation()
+                     }
+                        else if (bookStatus == "0")
+                        {
+                            let rideId = rideid
+                            let bookId = bookid
+                            UserDefaults.standard.set(rideId, forKey: "rideID")
+                            UserDefaults.standard.set(bookId, forKey: "bookID")
+
+                        }
+                    else if (bookStatus == "4")
+                    {
+                        let rideId = rideid
+                        let bookId = bookid
+                        UserDefaults.standard.set(rideId, forKey: "rideID")
+                        UserDefaults.standard.set(bookId, forKey: "bookID")
+
+                    }
 //
-//                    if (bookStatus  ==  "1"){
-//
-//                    }
-//                        else if (bookStatus == "0")
-//                        {
-//                            let rideId = rideid
-//                            let bookId = bookid
-//                            UserDefaults.standard.set(rideId, forKey: "rideID")
-//                            UserDefaults.standard.set(bookId, forKey: "bookID")
-//
-//                        }
-//                    else if (bookStatus == "4")
-//                    {
-//                        let rideId = rideid
-//                        let bookId = bookid
-//                        UserDefaults.standard.set(rideId, forKey: "rideID")
-//                        UserDefaults.standard.set(bookId, forKey: "bookID")
-//
-//                    }
-//
-//                    else{
-//
-//                        //self.createRelation()
-//
-//                    }
+                    else{
+
+                        //self.createRelation()
+
+                    }
                  //   self.showAlert(message: message)
                 }else{
                     //self.showAlert(message: message)
@@ -810,32 +859,59 @@ cell.rejactBtn.isUserInteractionEnabled = true
     }
     func createRelation(){
         var bothID = [String]()
+        var bothID1 = [String]()
         let userID = UserDefaults.standard.value(forKey: "LoginID") as? String ?? ""
         
         self.ref = Database.database().reference()
        
         bothID.append(userID)
-//        bothID.append(bookDict.book_user)
+        bothID.append(bookDict.book_user ?? "")
         
-        let sortedValues = bothID.sorted { (value1, value2) in
-            let order = value1.compare(value2, options: .numeric)
-            return order == .orderedDescending
-        }
-        print(sortedValues)
-        let idNodes = sortedValues.joined(separator: "")
+//
+//        bothID1.append(userID)
+//        bothID1.append(bookDict.book_user ?? "")
+//        bothID1.append(bookDict.book_id ?? "")
+        
+        
+        
+        var largest : Int
+        var smallest : Int
+        let rideDetail_id = Int(userID) ?? 0
+        let bookDetail_id = Int(bookDict.book_user ?? "") ?? 0
+        let booking_id =  Int(bookDict.book_id ?? "") ?? 0
+        
+        largest = rideDetail_id > bookDetail_id ? rideDetail_id : bookDetail_id
+        smallest = rideDetail_id < bookDetail_id ? rideDetail_id : bookDetail_id
+        let largestString = String(largest)
+        let smallestString = String(smallest)
+        let bookString = String(booking_id)
+        let value = largestString + smallestString + bookString
+        print(value)
+        
+        
+        
+//        let sortedValues = bothID1.sorted { (value1, value2) in
+//            let order = value1.compare(value2, options: .numeric)
+//            return order == .orderedDescending
+//        }
+//        print(sortedValues)
+        let idNodes = value
         let idWithComma = bothID.joined(separator: ",")
         print(idNodes)
         let chatHistory = self.ref.child("ChatHistory")
         let bothIds = chatHistory.child(idNodes)
         let unreadNode = bothIds.child("unread_message")
-        
         let userData = bothIds.child("user_data")
-        
-        let unreadCountId1: Dictionary<String, Any> = ["unread_message_count":"","userid":userID]
+         let unreadCountId1: Dictionary<String, Any> = ["unread_message_count":"","userid":userID]
         let unreadCountId2: Dictionary<String, Any> = ["unread_message_count":"","userid":bookDict.book_user ?? ""]
       
-        let userData1: Dictionary<String, Any> = ["user_image":"test1","user_name":"user1","userid":userID]
-        let userData2: Dictionary<String, Any> = ["user_image":"","user_name":"user2","userid":bookDict.book_user!]
+        let url = rideDetailDict?.pic ?? ""
+       
+        let fName =  rideDetailDict?.firstname ?? ""
+        let lName = rideDetailDict?.lastname ?? ""
+        
+        let userData1: Dictionary<String, Any> = ["user_image":url,"user_name": "\(fName) \(lName)","userid":userID]
+        let userData2: Dictionary<String, Any> = ["user_image":bookDict.pic ?? "","user_name":bookDict.firstname ?? "","userid":bookDict.book_user ?? ""]
         
         let dict: NSDictionary = ["createTime": "\(ServerValue.timestamp())",
                                              "id": idNodes,

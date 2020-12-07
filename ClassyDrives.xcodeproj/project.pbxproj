@@ -172,12 +172,16 @@
 		93C20B8723F82C15004693DB /* cd_loder.gif in Resources */ = {isa = PBXBuildFile; fileRef = 93C20B8623F82C14004693DB /* cd_loder.gif */; };
 		93C4C69623A8CB7C0037962F /* DriverProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 937701C823A793B9005C1DEE /* DriverProfile.storyboard */; };
 		B50C620E245DC078003FCFCA /* CommonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50C620D245DC078003FCFCA /* CommonModel.swift */; };
+		B5109EA02529E76A009E7095 /* FeedbackVC1.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5109E9F2529E76A009E7095 /* FeedbackVC1.swift */; };
+		B5109ED12529EE16009E7095 /* FeedbackVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5109ED02529EE16009E7095 /* FeedbackVC2.swift */; };
 		B5175ECD245ED1B5002FF4A1 /* OfferedRideDetailsVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5175ECC245ED1B5002FF4A1 /* OfferedRideDetailsVC2.swift */; };
 		B522A4AA2438A59400E6EE80 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B522A4A92438A59400E6EE80 /* GoogleService-Info.plist */; };
+		B53EE74E250DF75E005B7D30 /* UserLicenessVerifyVC1.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53EE74D250DF75E005B7D30 /* UserLicenessVerifyVC1.swift */; };
 		B53F07C02450B46C0030C41D /* OfferedRideDetailsVC1.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53F07BF2450B46B0030C41D /* OfferedRideDetailsVC1.swift */; };
 		B54E40B724D5DD17006B041A /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B54E40B624D5DD17006B041A /* UserNotifications.framework */; };
 		B5795235245DA87F003BF5C9 /* Mappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5795232245DA87F003BF5C9 /* Mappable.swift */; };
 		B5795236245DA87F003BF5C9 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5795233245DA87F003BF5C9 /* ServiceManager.swift */; };
+		B5ACC6802561727B009E44F7 /* OfferedRideDetailsCurrentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACC67F2561727B009E44F7 /* OfferedRideDetailsCurrentVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -349,12 +353,16 @@
 		9381FDC2239A3FB50078652D /* DirectionMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionMapVC.swift; sourceTree = "<group>"; };
 		93C20B8623F82C14004693DB /* cd_loder.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = cd_loder.gif; sourceTree = "<group>"; };
 		B50C620D245DC078003FCFCA /* CommonModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonModel.swift; sourceTree = "<group>"; };
+		B5109E9F2529E76A009E7095 /* FeedbackVC1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackVC1.swift; sourceTree = "<group>"; };
+		B5109ED02529EE16009E7095 /* FeedbackVC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackVC2.swift; sourceTree = "<group>"; };
 		B5175ECC245ED1B5002FF4A1 /* OfferedRideDetailsVC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferedRideDetailsVC2.swift; sourceTree = "<group>"; };
 		B522A4A92438A59400E6EE80 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B53EE74D250DF75E005B7D30 /* UserLicenessVerifyVC1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLicenessVerifyVC1.swift; sourceTree = "<group>"; };
 		B53F07BF2450B46B0030C41D /* OfferedRideDetailsVC1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferedRideDetailsVC1.swift; sourceTree = "<group>"; };
 		B54E40B624D5DD17006B041A /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		B5795232245DA87F003BF5C9 /* Mappable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mappable.swift; sourceTree = "<group>"; };
 		B5795233245DA87F003BF5C9 /* ServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
+		B5ACC67F2561727B009E44F7 /* OfferedRideDetailsCurrentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferedRideDetailsCurrentVC.swift; sourceTree = "<group>"; };
 		CE6064DD237990A2E77492FF /* Pods_ClassyDrives.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClassyDrives.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9630ABEFC2B0954D58F0EB5 /* Pods-ClassyDrives.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassyDrives.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClassyDrives/Pods-ClassyDrives.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -472,6 +480,7 @@
 		67061F9C22AB81E900DD9D39 /* ClassyDrives */ = {
 			isa = PBXGroup;
 			children = (
+				B5109E9D2529E73F009E7095 /* Feedback */,
 				B5175ECB245ED195002FF4A1 /* OfferedRideDetailsVC2 */,
 				B5105655245DA707007478E2 /* MyManager */,
 				B522A4A92438A59400E6EE80 /* GoogleService-Info.plist */,
@@ -497,6 +506,8 @@
 				67061FAF22AB826A00DD9D39 /* View Controllers */,
 				67061FB422AB892C00DD9D39 /* Extenshion */,
 				67CE644922B2512500F30601 /* MVVM */,
+				B53EE74D250DF75E005B7D30 /* UserLicenessVerifyVC1.swift */,
+				B5ACC67F2561727B009E44F7 /* OfferedRideDetailsCurrentVC.swift */,
 			);
 			path = ClassyDrives;
 			sourceTree = "<group>";
@@ -840,6 +851,15 @@
 			path = MyManager;
 			sourceTree = "<group>";
 		};
+		B5109E9D2529E73F009E7095 /* Feedback */ = {
+			isa = PBXGroup;
+			children = (
+				B5109E9F2529E76A009E7095 /* FeedbackVC1.swift */,
+				B5109ED02529EE16009E7095 /* FeedbackVC2.swift */,
+			);
+			path = Feedback;
+			sourceTree = "<group>";
+		};
 		B5175ECB245ED195002FF4A1 /* OfferedRideDetailsVC2 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1056,6 +1076,7 @@
 				67CE645622B2524200F30601 /* UserDataModel.swift in Sources */,
 				665A8AF32396D3F200B39D91 /* ReviewsTableViewCell.swift in Sources */,
 				674554A322EDEA820057F0DD /* SaveUserAddressVC.swift in Sources */,
+				B5109EA02529E76A009E7095 /* FeedbackVC1.swift in Sources */,
 				6784DB1622AD0691003C390E /* TableViewCell.swift in Sources */,
 				B5175ECD245ED1B5002FF4A1 /* OfferedRideDetailsVC2.swift in Sources */,
 				677379ED22C76AB200F4EBBB /* offerRedManageTableCell.swift in Sources */,
@@ -1095,6 +1116,7 @@
 				67CE646022B284B200F30601 /* StartVC.swift in Sources */,
 				67CE645022B251D800F30601 /* NetworkingInterface.swift in Sources */,
 				67CE645422B2521600F30601 /* UserVM.swift in Sources */,
+				B53EE74E250DF75E005B7D30 /* UserLicenessVerifyVC1.swift in Sources */,
 				678EFD1822E0FA05003EDE25 /* DataManger.swift in Sources */,
 				67061FB122AB82D300DD9D39 /* StartPage.swift in Sources */,
 				18FF59F623083C8000A9F7A0 /* RideDetail.swift in Sources */,
@@ -1121,6 +1143,7 @@
 				9381FDC3239A3FB50078652D /* DirectionMapVC.swift in Sources */,
 				67061FB822AB8D5600DD9D39 /* SignInVC.swift in Sources */,
 				66D16C9C237F376B002E67C2 /* UserRemoteReplicator.swift in Sources */,
+				B5ACC6802561727B009E44F7 /* OfferedRideDetailsCurrentVC.swift in Sources */,
 				670540B622BBA9D600FDFEEA /* notifiationCell.swift in Sources */,
 				67DC371322E8DD9D007DA243 /* MainTabVC.swift in Sources */,
 				673B593822B942CD00D347B9 /* selectFindRideVC.swift in Sources */,
@@ -1157,6 +1180,7 @@
 				66D16CB2237F386C002E67C2 /* String.swift in Sources */,
 				673B592C22B8E3FF00D347B9 /* WalletVC.swift in Sources */,
 				67B9C97422EA1AAD00C43A41 /* carDetailscellXib.swift in Sources */,
+				B5109ED12529EE16009E7095 /* FeedbackVC2.swift in Sources */,
 				66D16CB3237F386C002E67C2 /* UIViewController.swift in Sources */,
 				67CE645822B252C100F30601 /* APIKeys.swift in Sources */,
 				67CE645C22B272BF00F30601 /* MobileVC.swift in Sources */,

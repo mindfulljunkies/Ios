@@ -15,7 +15,7 @@ import GoogleMaps
 class OfferedRideDetailsVC: BaseVC {
 
     
-    
+    var isFromCurrentRide:Bool = false
     @IBOutlet weak var pickLocation: UIView!
     @IBOutlet weak var dropLocation: UIView!
     @IBOutlet weak var stop1Location: UIView!
@@ -308,6 +308,8 @@ class OfferedRideDetailsVC: BaseVC {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        
      if  isFromRide  == true
      {
         mTableVw.isHidden = true
@@ -471,7 +473,7 @@ self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .def
                     print(res)
                     if (self.isReceived == true || self.isFromView == true)
                     {
-                        self.mCarNameLbl.text = "\(String(describing: res?["car_name"] as? String) ) - \(String(describing: res?["car_model"] as? String) ?? ""))"
+                        self.mCarNameLbl.text = "\(String(describing: res?["car_name"] as? String ?? "") ) - \(String(describing: res?["car_model"] as? String ?? "") ?? "")"
                     }
                     
                     
@@ -588,7 +590,7 @@ extension OfferedRideDetailsVC: UITableViewDelegate,UITableViewDataSource{
                 {
                     cell.acceptBtn.isHidden = false
                     cell.rejactBtn.isHidden = false
-                    cell.acceptBtn.setTitle("Chat Rider", for: .normal)
+                    cell.acceptBtn.setTitle("Chat", for: .normal)
                     cell.rejactBtn.setTitle("Ride Started", for: .normal)
                     cancelBtn.setTitle("End Ride", for: .normal)
 
@@ -599,7 +601,7 @@ extension OfferedRideDetailsVC: UITableViewDelegate,UITableViewDataSource{
                     cell.acceptBtn.isHidden = false
                     cell.rejactBtn.isHidden = false
 
-                    cell.acceptBtn.setTitle("Chat Rider", for: .normal)
+                    cell.acceptBtn.setTitle("Chat Ride", for: .normal)
                     cell.rejactBtn.setTitle("Start Ride", for: .normal)
                     
 //                                    cell.requestResponseLbl.text = "Accepted"
@@ -701,7 +703,7 @@ mBookingReqLbl.isHidden = true
         selectIndex = index
         let bookStatus = UserVM.sheard.bookRideDetails[0].book[selectIndex].book_status
          if (bookStatus  ==  "1" && isReceived == false){
-            cell.acceptBtn.setTitle("Chat Rider", for: .normal)
+            cell.acceptBtn.setTitle("Chat", for: .normal)
             cell.rejactBtn.setTitle("Start Ride", for: .normal)
             let bookid = UserVM.sheard.bookRideDetails[0].book[selectIndex].book_id ?? ""
          let story = self.storyboard?.instantiateViewController(withIdentifier:"StartOTPVC") as! StartOTPVC
@@ -730,7 +732,7 @@ mBookingReqLbl.isHidden = true
                 if success{
                     let bookStatus = UserVM.sheard.bookRideDetails[0].book[self.selectIndex].book_status
                     if (bookStatus  ==  "1"){
-                        
+                        self.createRelation()
                     }
                         else if (bookStatus == "0")
                         {

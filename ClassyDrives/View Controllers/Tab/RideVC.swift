@@ -20,9 +20,9 @@ class RideVC: BaseVC {
     @IBOutlet var givenBtn: UIButton!
     @IBOutlet var receivedBtn: UIButton!
     @IBOutlet var rideTable: UITableView!
-    
+    fileprivate var new_value:String = ""
     var buttonValue = 1
-    var ManageRideDict : ManageRides?
+    var ManageRideDict : ManageRides? 
          var currentLocation = CLLocation()
         var locationManager = CLLocationManager()
         var myLocationLat:String?
@@ -43,7 +43,7 @@ class RideVC: BaseVC {
              let rideId = UserDefaults.standard.value(forKey: "rideID") as? String ?? ""
              let userId = UserDefaults.standard.value(forKey: "LoginID") as? String ?? ""
              Indicator.sharedInstance.showIndicator()
-                    UserVM.sheard.panicApi(user_id: userId , ride_id: rideId, lattitude: latii, longitude: longi) { (success, message, error) in
+                    UserVM.sheard.panicApi(user_id: userId , ride_id: new_value, lattitude: latii, longitude: longi) { (success, message, error) in
                         if error == nil{
                             Indicator.sharedInstance.hideIndicator()
                             if success{
@@ -70,10 +70,11 @@ class RideVC: BaseVC {
         }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.rideOnlineStatus { (status) in
+        self.rideOnlineStatus { (status,ride_id,m_booked) in
             if status{
                 self.currentRideBtn.isHidden = false
                 self.sosBtn.isHidden = false
+                self.new_value = ride_id
             }else{
                 self.currentRideBtn.isHidden = true
                 self.sosBtn.isHidden = true
@@ -133,17 +134,32 @@ class RideVC: BaseVC {
         }
        func curentRide()
        {
-                     let story = self.storyboard?.instantiateViewController(withIdentifier: "OfferedRideDetailsVCID") as! OfferedRideDetailsVC
+                     
                   let rideId =   UserDefaults.standard.value(forKey: "rideID") as? String
                   let bookID =  UserDefaults.standard.value(forKey: "bookID") as? String
-        story.isFromView = true
 
-    //                 story.islocal = UserVM.sheard.allRidesDetails[0].bookedRide[indexPath.row].is_local_ride ?? ""
-                     story.rideId = rideId ?? ""
-                     story.bookid = bookID ?? ""
-    //                 story.isReceived = true
-         //            story.cancelReason = "usercancel"
-                     self.navigationController?.pushViewController(story, animated: true)
+     let story = self.storyboard?.instantiateViewController(withIdentifier: "OfferedRideDetailsCurrentVC") as! OfferedRideDetailsCurrentVC
+                             //   let rideId =   UserDefaults.standard.value(forKey: "rideID") as? String
+              //                  let bookID =  UserDefaults.standard.value(forKey: "bookID") as? String
+                      story.isFromView = true
+                  //                 story.islocal = UserVM.sheard.allRidesDetails[0].bookedRide[indexPath.row].is_local_ride ?? ""
+                      
+                     // if am_i_booked == "1"{
+                          story.bookid = ""
+                          //story.isFromCurrentRide = true
+                          story.rideId = new_value
+//                      }else{
+//                          story.rideId = new_value
+//                          //story.isFromCurrentRide = true
+//                          story.bookid  = ""
+//                      }
+                      
+                                 //  story.rideId = newRide
+                                   
+                  //                 story.isReceived = true
+                       //            story.cancelReason = "usercancel"
+                                   self.navigationController?.pushViewController(story, animated: true)
+                      
         }
     @IBAction func givenBtnAtn(_ sender: Any) {
         receivedBtn.backgroundColor = .white
@@ -405,10 +421,19 @@ extension RideVC: UITableViewDelegate, UITableViewDataSource{
             let manageDict = ManageRideDict?.booked_ride![indexPath.row]
             let story = self.storyboard?.instantiateViewController(withIdentifier: "OfferedRideDetailsVCID1") as! OfferedRideDetailsVC1
             story.selectIndex = indexPath.row
+            
             story.islocal = UserVM.sheard.allRidesDetails[0].bookedRide[indexPath.row].is_local_ride ?? ""
+            
             story.rideDetailDict = manageDict!
-            story.rideId = UserVM.sheard.allRidesDetails[0].bookedRide[indexPath.row].ride_id
+            
+            story.rideId = UserVM.sheard.allRidesDetails[0].bookedRide[indexPath.row].ride_id ?? ""
+           
             story.bookid = UserVM.sheard.allRidesDetails[0].bookedRide[indexPath.row].book_id ?? ""
+            
+            
+            story.bookAmount = UserVM.sheard.allRidesDetails[0].bookedRide[indexPath.row].book_amount ?? "0"
+            
+            
             story.isReceived = true
 //            story.cancelReason = "usercancel"
             self.navigationController?.pushViewController(story, animated: true)
@@ -419,8 +444,9 @@ extension RideVC: UITableViewDelegate, UITableViewDataSource{
             story.rideDetailDict = manageDict!
             story.selectIndex = indexPath.row
              story.isReceived = false
+            story.bookAmount = UserVM.sheard.allRidesDetails[0].offerRide[indexPath.row].ride_amount ?? "0"
             story.islocal = UserVM.sheard.allRidesDetails[0].offerRide[indexPath.row].is_local_ride ?? ""
-            story.rideId = UserVM.sheard.allRidesDetails[0].offerRide[indexPath.row].ride_id
+            story.rideId = UserVM.sheard.allRidesDetails[0].offerRide[indexPath.row].ride_id ?? ""
             story.bookid = UserVM.sheard.allRidesDetails[0].offerRide[indexPath.row].book_id ?? ""
           //  let v =  UserVM.sheard.allRidesDetails[0].offerRide[indexPath.row].
             self.navigationController?.pushViewController(story, animated: true)

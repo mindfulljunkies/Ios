@@ -149,7 +149,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
       print("Firebase registration token: \(fcmToken)")
 
-      
       InstanceID.instanceID().instanceID { result, error in
           if let error = error {
               print("Error fetching remote instance ID: \(error)")

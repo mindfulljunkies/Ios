@@ -80,15 +80,20 @@ class SaveUserAddressVC: BaseVC {
 extension SaveUserAddressVC : userAddressDelegate{
     func addressData(index: Int, address: String) {
         if index == 1 {
-          addAddress(type : "address",address : address)
+            
+            
+            addAddress(type : "address",address : address,fav:"",work:"")
             homeAddressTxt.text = address
         }
         else if (index == 2) {
-            addAddress(type : "work_address",address : address)
+            
+            addAddress(type : "work_address",address : "",fav:"",work:address)
             workAdressTxt.text = address
         }
         else{
-             addAddress(type : "favourite_address",address : address)
+            
+         
+             addAddress(type : "favourite_address",address : "",fav:address,work:"")
             favouriteAddressTxt.text = address
         }
      }
@@ -97,9 +102,9 @@ extension SaveUserAddressVC : userAddressDelegate{
 //MARK:- Api Method
 
 extension SaveUserAddressVC{
-    func addAddress(type : String,address : String) {
+    func addAddress(type : String,address : String,fav:String,work:String) {
         Indicator.sharedInstance.showIndicator()
-        UserVM.sheard.addAddress(work_type : type,user_id : userID,favourite_address : address) { (success, message, error) in
+        UserVM.sheard.addAddress(work_type : type,user_id : userID,favourite_address : fav,address: address,work_address: work) { (success, message, error) in
             if error == nil{
                 Indicator.sharedInstance.hideIndicator()
                 if success{

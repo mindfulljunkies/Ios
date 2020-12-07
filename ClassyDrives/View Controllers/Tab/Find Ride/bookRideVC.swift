@@ -29,6 +29,12 @@ class bookRideVC: BaseVC, UITextFieldDelegate{
     var applied_id : String?
     @IBOutlet weak var mCodeVw: UIView!
     
+    var rideFromAdd = String()
+    var rideFromLat = String()
+    var rideFromLong = String()
+    var rideToAdd = String()
+    var rideToLat = String()
+    var rideToLong = String()
     
     var seats = Int()
     var cardPicker = UIPickerView()
@@ -63,13 +69,19 @@ class bookRideVC: BaseVC, UITextFieldDelegate{
         
         fixSeatCount = UserVM.sheard.allRideDetails[index].ride_seat ?? 0
         rideId = UserVM.sheard.allRideDetails[index].rideid
-        fromAddress = UserVM.sheard.allRideDetails[index].ride_from_address
-        fromLat = UserVM.sheard.allRideDetails[index].ride_from_lat
-        fromlong = UserVM.sheard.allRideDetails[index].ride_from_long
         
-        toAddress = UserVM.sheard.allRideDetails[index].ride_to_address
-        toLat = UserVM.sheard.allRideDetails[index].ride_to_lat
-        toLong = UserVM.sheard.allRideDetails[index].ride_to_long
+        
+   
+        
+        
+        
+        fromAddress = rideFromAdd
+        fromLat = rideFromLat
+        fromlong = rideFromLong
+        
+        toAddress = rideToAdd
+        toLat = rideToLat
+        toLong = rideToLong
         
         amount = String(UserVM.sheard.allRideDetails[index].ride_amount)
         distance = String(UserVM.sheard.allRideDetails[index].ride_distance!)

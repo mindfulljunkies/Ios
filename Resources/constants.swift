@@ -32,7 +32,7 @@ var instanceToken:String{
         
     }
     get{
-        guard let instanceToken = UserDefaults.standard.object(forKey: kInstanceToken) as? String else { return "abc" }
+        guard let instanceToken = UserDefaults.standard.object(forKey: kInstanceToken) as? String else { return "" }
         return instanceToken
     }
 }

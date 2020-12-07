@@ -22,6 +22,7 @@ class ProfileVC: BaseVC, DataEnteredDelegate{
         var locationManager = CLLocationManager()
         var myLocationLat:String?
         var myLocationLng:String?
+    fileprivate var new_value:String = ""
       func sosCall()
       {
       if CLLocationManager.locationServicesEnabled()
@@ -38,7 +39,7 @@ class ProfileVC: BaseVC, DataEnteredDelegate{
              let rideId = UserDefaults.standard.value(forKey: "rideID") as? String ?? ""
              let userId = UserDefaults.standard.value(forKey: "LoginID") as? String ?? ""
              Indicator.sharedInstance.showIndicator()
-                    UserVM.sheard.panicApi(user_id: userId , ride_id: rideId, lattitude: latii, longitude: longi) { (success, message, error) in
+                    UserVM.sheard.panicApi(user_id: userId , ride_id: new_value, lattitude: latii, longitude: longi) { (success, message, error) in
                         if error == nil{
                             Indicator.sharedInstance.hideIndicator()
                             if success{
@@ -84,6 +85,18 @@ class ProfileVC: BaseVC, DataEnteredDelegate{
     override func viewWillAppear(_ animated: Bool) {
         let rideId =   UserDefaults.standard.value(forKey: "rideID") as? String
         let bookID =  UserDefaults.standard.value(forKey: "bookID") as? String
+        
+        self.rideOnlineStatus { (status,ride_id,m_booked) in
+            if status{
+                self.new_value = ride_id
+                self.currentRideBtn.isHidden = false
+                self.sosBtn.isHidden = false
+            }else{
+                self.currentRideBtn.isHidden = true
+                self.sosBtn.isHidden = true
+            }
+        }
+        
 //        if (rideId == nil && bookID == nil)
 //        {
 //            self.currentRideBtn.isHidden = true
@@ -109,17 +122,32 @@ class ProfileVC: BaseVC, DataEnteredDelegate{
     
        func curentRide()
        {
-                     let story = self.storyboard?.instantiateViewController(withIdentifier: "OfferedRideDetailsVCID") as! OfferedRideDetailsVC
+                     
                   let rideId =   UserDefaults.standard.value(forKey: "rideID") as? String
                   let bookID =  UserDefaults.standard.value(forKey: "bookID") as? String
-        story.isFromView = true
 
-    //                 story.islocal = UserVM.sheard.allRidesDetails[0].bookedRide[indexPath.row].is_local_ride ?? ""
-                     story.rideId = rideId ?? ""
-                     story.bookid = bookID ?? ""
-    //                 story.isReceived = true
-         //            story.cancelReason = "usercancel"
-                     self.navigationController?.pushViewController(story, animated: true)
+     let story = self.storyboard?.instantiateViewController(withIdentifier: "OfferedRideDetailsCurrentVC") as! OfferedRideDetailsCurrentVC
+                             //   let rideId =   UserDefaults.standard.value(forKey: "rideID") as? String
+              //                  let bookID =  UserDefaults.standard.value(forKey: "bookID") as? String
+                      story.isFromView = true
+                  //                 story.islocal = UserVM.sheard.allRidesDetails[0].bookedRide[indexPath.row].is_local_ride ?? ""
+                      
+                      //if am_i_booked == "1"{
+                          story.bookid = ""
+                          //story.isFromCurrentRide = true
+                          story.rideId = new_value
+//                      }else{
+//                          story.rideId = new_value
+//                          //story.isFromCurrentRide = true
+//                          story.bookid  = ""
+//                      }
+                      
+                                 //  story.rideId = newRide
+                                   
+                  //                 story.isReceived = true
+                       //            story.cancelReason = "usercancel"
+                                   self.navigationController?.pushViewController(story, animated: true)
+                      
         }
     
     

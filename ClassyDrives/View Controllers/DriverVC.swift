@@ -12,7 +12,9 @@ import FloatRatingView
 class DriverVC: BaseVC {
 
     @IBOutlet weak var driveView: MSBView!
+    @IBOutlet weak var ssnView: MSBView!
     @IBOutlet weak var drivingVerified: UILabel!
+    @IBOutlet weak var ssnVerified: UILabel!
     @IBOutlet weak var phoneVerify: UILabel!
     @IBOutlet weak var chat_cancel: UIImageView!
     @IBOutlet weak var music_cancel: UIImageView!
@@ -35,11 +37,26 @@ class DriverVC: BaseVC {
             
             drivingVerified.text = "Verify"
             drivingVerified.textColor = #colorLiteral(red: 0.6666666667, green: 0.6666666667, blue: 0.6666666667, alpha: 1)
+            driveView.isHidden = true
+            
         }else{
             drivingVerified.text = "Verified"
             drivingVerified.textColor = #colorLiteral(red: 0.4470588235, green: 0.7019607843, blue: 0.05882352941, alpha: 1)
-
-        }
+            driveView.isHidden = false
+         }
+        
+        
+        if UserVM.sheard.profileDetails[0].profiledata[0].ssn_status == "0"{
+            
+            ssnVerified.text = "Verify"
+            ssnVerified.textColor = #colorLiteral(red: 0.6666666667, green: 0.6666666667, blue: 0.6666666667, alpha: 1)
+            ssnView.isHidden = true
+            
+        }else{
+            ssnVerified.text = "Verified"
+            ssnVerified.textColor = #colorLiteral(red: 0.4470588235, green: 0.7019607843, blue: 0.05882352941, alpha: 1)
+            ssnView.isHidden = false
+         }
         let url = UserVM.sheard.profileDetails[0].profiledata[0].pic ?? ""
          if url != nil {
             img.sd_setImage(with: URL(string: url))

@@ -63,9 +63,15 @@ class updateProfileVC: BaseVC{
             userImg.sd_setImage(with: URL(string: url))
         }
         fNameTF.text =  UserVM.sheard.profileDetails[0].profiledata[0].fname
-        lNameTF.text = UserVM.sheard.profileDetails[0].profiledata[0].email
+        lNameTF.text = UserVM.sheard.profileDetails[0].profiledata[0].lname
         bioTF.text = UserVM.sheard.profileDetails[0].profiledata[0].bio
-      
+        
+        let value = UserVM.sheard.profileDetails[0].profiledata[0].relative_mobile ?? ""
+         let data = value.dropFirst(2)
+            mEmergTxt.text = "\(data)"
+        
+       
+        
         if UserVM.sheard.profileDetails[0].profiledata[0].is_smoking == "0"{
             smokingImage.image = UIImage(named: "smoke_cancel")
 
@@ -213,12 +219,12 @@ class updateProfileVC: BaseVC{
     }
     
     @IBAction func saveBtnAtn(_ sender: Any) {
-        if updatedImage != nil{
+       // if updatedImage != nil{
            uploadImageAndData()
-        }
-        else{
-           updateProfile()
-        }
+       // }
+//        else{
+//           updateProfile()
+//        }
   }
     
     
@@ -274,13 +280,34 @@ extension updateProfileVC{
     
     
       func uploadImageAndData(){
-            let imgData = updatedImage?.jpegData(compressionQuality: 0.7)
+        
+        if fNameTF.text ?? "" == ""{
+            showAlert(message: "Please enter first name")
+            return
+        }
+        if lNameTF.text ?? "" == ""{
+            showAlert(message: "Please enter last name")
+            return
+        }
+        
+        if bioTF.text.count > 120 {
+            showAlert(message: "Bio should not be more than 120 characters")
+            return
+        }
+        
+        let imgData = self.userImg.image?.jpegData(compressionQuality: 0.7)
             Indicator.sharedInstance.showIndicator()
             
-        let parameters = ["userid": userID, "firstName": fNameTF.text!, "lastName": lNameTF.text!, "city": ""," state":"", "zip": "", "dob": "", "bio": bioTF.text!,"is_smoking" : isSmoke,"is_pets" : isPet,"is_music" : isMusic,"is_chat" : ischat,"relative_mobile": self.mEmergTxt.text!] as [String : Any]
+       
+         let parameters = ["userid": userID, "firstName": fNameTF.text ?? "", "lastName": lNameTF.text ?? "", "city": ""," state":"", "zip": "", "dob": "", "bio": bioTF.text ?? "","is_smoking" : isSmoke,"is_pets" : isPet,"is_music" : isMusic,"is_chat" : ischat,"relative_mobile": "+1" + (mEmergTxt.text ?? "")] as [String : Any]
             
-            Alamofire.upload(multipartFormData: { multipartFormData in
+            Alamofire.upload(multipartFormData: {
+                
+                
+                multipartFormData in
                 multipartFormData.append(imgData!, withName: "pic", fileName: "file.jpg", mimeType: "image/jpg")
+                
+                
                 for (key, value) in parameters {
                     multipartFormData.append((value as AnyObject).data(using: String.Encoding.utf8.rawValue)!, withName: key)
                 }

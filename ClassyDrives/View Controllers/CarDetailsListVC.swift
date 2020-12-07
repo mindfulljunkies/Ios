@@ -21,8 +21,8 @@ class CarDetailsListVC: BaseVC {
     var detailType = 0
     var carmake = ""
     var carmodel = ""
-   var textdat = ""
-     var delegate : carDetailsdelegate?
+    var textdat = ""
+    var delegate : carDetailsdelegate?
     var colorArr = ["White","Silver","Black","Grey","Blue","Red","Brown","Green"]
    
     override func viewDidLoad() {
@@ -165,6 +165,7 @@ extension CarDetailsListVC{
         UserVM.sheard.carYear(make : carmake,model : carmodel) { (success, message, error) in
             if error == nil{
                 if success{
+                    
                     self.carDetailsTblView.reloadData()
                 }else{
                     self.showAlert(message: message)

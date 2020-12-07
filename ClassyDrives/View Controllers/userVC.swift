@@ -12,7 +12,6 @@ class userVC: BaseVC, UITextFieldDelegate{
     @IBOutlet var firstTF: UITextField!
     @IBOutlet var lastTF: UITextField!
     @IBOutlet var dobTF: UITextField!
-    
     @IBOutlet var firstView: UIView!
     @IBOutlet var lastView: UIView!
     @IBOutlet var dobView: UIView!

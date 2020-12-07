@@ -17,6 +17,8 @@ typealias APIServiceFailureCallback = ((NetworkErrorReason?, NSError?) -> ())
 typealias JSONArrayResponseCallback = ((JSONArray?) -> ())
 typealias JSONDictionaryResponseCallback = ((JSONDictionary?) -> ())
 typealias responseCallBack = ((Bool, String?, NSError?) -> ())
+
+typealias responseCallBack2 = ((String,String,Bool, String?, NSError?) -> ())
 typealias responseCallBackNew = ((Bool, String?,String?,String? ,NSError?) -> ())
 typealias responseCallBack1 = ((Bool, String?,[String:Any], NSError?) -> ())
 

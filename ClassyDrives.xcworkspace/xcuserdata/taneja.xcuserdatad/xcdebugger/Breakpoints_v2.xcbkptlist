@@ -92,8 +92,8 @@
             filePath = "ClassyDrives/View Controllers/NewRideVC/OfferedRideDetailsVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "724"
-            endingLineNumber = "724"
+            startingLineNumber = "726"
+            endingLineNumber = "726"
             landmarkName = "acceptRejectRideApi(actionType:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -108,8 +108,8 @@
             filePath = "ClassyDrives/View Controllers/NewRideVC/OfferedRideDetailsVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "725"
-            endingLineNumber = "725"
+            startingLineNumber = "727"
+            endingLineNumber = "727"
             landmarkName = "acceptRejectRideApi(actionType:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -124,8 +124,8 @@
             filePath = "ClassyDrives/View Controllers/NewRideVC/OfferedRideDetailsVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "730"
-            endingLineNumber = "730"
+            startingLineNumber = "732"
+            endingLineNumber = "732"
             landmarkName = "acceptRejectRideApi(actionType:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -134,14 +134,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "7D5387D2-05D3-49E3-8D68-5F8A5B1AA5EB"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ClassyDrives/View Controllers/NewRideVC/OfferedRideDetailsVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "754"
-            endingLineNumber = "754"
+            startingLineNumber = "756"
+            endingLineNumber = "756"
             landmarkName = "acceptRejectRideApi(actionType:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -150,14 +150,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "BB68738D-FB87-4744-89C6-4F27A7658EC9"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ClassyDrives/View Controllers/NewRideVC/OfferedRideDetailsVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "788"
-            endingLineNumber = "788"
+            startingLineNumber = "790"
+            endingLineNumber = "790"
             landmarkName = "createRelation()"
             landmarkType = "7">
          </BreakpointContent>
@@ -166,14 +166,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "D9B9D0B8-101A-4527-80E9-50F24A111D83"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ClassyDrives/View Controllers/NewRideVC/OfferedRideDetailsVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "785"
-            endingLineNumber = "785"
+            startingLineNumber = "787"
+            endingLineNumber = "787"
             landmarkName = "createRelation()"
             landmarkType = "7">
          </BreakpointContent>
@@ -188,13 +188,13 @@
             filePath = "ClassyDrives/View Controllers/NewRideVC/OfferedRideDetailsVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "793"
-            endingLineNumber = "793"
+            startingLineNumber = "795"
+            endingLineNumber = "795"
             landmarkName = "createRelation()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "F39C58C4-7C8E-4D0B-BB8A-DD37EC71E2DE - 996d90c21ef0c6e6"
+                  uuid = "F39C58C4-7C8E-4D0B-BB8A-DD37EC71E2DE - edc8eecc8757d1db"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -204,12 +204,12 @@
                   urlString = "file:///Users/taneja/Documents/LatestClassy/ClassyDrives%202%202/ClassyDrives/View%20Controllers/NewRideVC/OfferedRideDetailsVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "793"
-                  endingLineNumber = "793"
-                  offsetFromSymbolStart = "992">
+                  startingLineNumber = "795"
+                  endingLineNumber = "795"
+                  offsetFromSymbolStart = "1525">
                </Location>
                <Location
-                  uuid = "F39C58C4-7C8E-4D0B-BB8A-DD37EC71E2DE - e177ded0b07d4fc"
+                  uuid = "F39C58C4-7C8E-4D0B-BB8A-DD37EC71E2DE - 7ab203e392a0c3a0"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -219,9 +219,9 @@
                   urlString = "file:///Users/taneja/Documents/LatestClassy/ClassyDrives%202%202/ClassyDrives/View%20Controllers/NewRideVC/OfferedRideDetailsVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "794"
-                  endingLineNumber = "794"
-                  offsetFromSymbolStart = "152">
+                  startingLineNumber = "796"
+                  endingLineNumber = "796"
+                  offsetFromSymbolStart = "126">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -236,8 +236,8 @@
             filePath = "ClassyDrives/View Controllers/NewRideVC/OfferedRideDetailsVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "798"
-            endingLineNumber = "798"
+            startingLineNumber = "800"
+            endingLineNumber = "800"
             landmarkName = "createRelation()"
             landmarkType = "7">
          </BreakpointContent>
@@ -252,105 +252,9 @@
             filePath = "ClassyDrives/View Controllers/NewRideVC/OfferedRideDetailsVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "735"
-            endingLineNumber = "735"
+            startingLineNumber = "737"
+            endingLineNumber = "737"
             landmarkName = "acceptRejectRideApi(actionType:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "3E11FE68-C518-4C7C-9077-BFE99E792898"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ClassyDrives/View Controllers/OfferedRideDetailsVC1.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "756"
-            endingLineNumber = "756"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8E3243FF-E36C-4445-9A48-E1CAA27F62E0"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ClassyDrives/View Controllers/OfferedRideDetailsVC1.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "762"
-            endingLineNumber = "762"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A8D47418-9BB5-44A8-BA0E-195F6B20F079"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ClassyDrives/View Controllers/OfferedRideDetailsVC1.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "764"
-            endingLineNumber = "764"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "5AD41659-E66A-46E8-BD0F-EE6DD98CFD58"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ClassyDrives/View Controllers/Tab/Profile/ProfileVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
-            landmarkName = "personalBtnAtn(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9001BF39-CAB2-4FB2-8902-5B6ED2A08607"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ClassyDrives/View Controllers/Tab/Profile/ProfileVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
-            landmarkName = "carBtnAtn(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C1674D84-99B3-4430-8970-746714C04809"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ClassyDrives/View Controllers/Tab/Profile/ProfileVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
-            landmarkName = "carBtnAtn(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -380,8 +284,8 @@
             filePath = "ClassyDrives/MVVM/Networking/NetworkingInterface.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "getRequest(image:isURLEncoded:success:failure:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -418,7 +322,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "AD620BE5-E7E8-4862-AE88-A02C712138B0 - 168be024e6cea75f"
+                  uuid = "AD620BE5-E7E8-4862-AE88-A02C712138B0 - 3d958d5e53fc654b"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -433,7 +337,7 @@
                   offsetFromSymbolStart = "1420">
                </Location>
                <Location
-                  uuid = "AD620BE5-E7E8-4862-AE88-A02C712138B0 - e7f6b6c7b81789fa"
+                  uuid = "AD620BE5-E7E8-4862-AE88-A02C712138B0 - cce8dbbd0d254a53"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -482,7 +386,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "DD4E32DD-5872-4E0D-AFD2-E90CD4D07148 - f7f4d4cc4a410e33"
+                  uuid = "DD4E32DD-5872-4E0D-AFD2-E90CD4D07148 - dceab9b6ff73cb4d"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -497,7 +401,7 @@
                   offsetFromSymbolStart = "1436">
                </Location>
                <Location
-                  uuid = "DD4E32DD-5872-4E0D-AFD2-E90CD4D07148 - c61fd559f68800d6"
+                  uuid = "DD4E32DD-5872-4E0D-AFD2-E90CD4D07148 - ed01b82343bac5c5"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -530,7 +434,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "3307992A-1D0F-47A5-A07E-1AEAB844F8B2 - 9ef91363c8269c35"
+                  uuid = "3307992A-1D0F-47A5-A07E-1AEAB844F8B2 - b5e77e197d14406e"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -545,7 +449,7 @@
                   offsetFromSymbolStart = "232">
                </Location>
                <Location
-                  uuid = "3307992A-1D0F-47A5-A07E-1AEAB844F8B2 - 561e804754a739d1"
+                  uuid = "3307992A-1D0F-47A5-A07E-1AEAB844F8B2 - 7d00ed3de195e429"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -578,7 +482,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "72767C9E-417B-48FF-93F3-B3D98AACD622 - dbe5e753c014ba4b"
+                  uuid = "72767C9E-417B-48FF-93F3-B3D98AACD622 - f87c4c2ee5df62e"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -593,7 +497,7 @@
                   offsetFromSymbolStart = "1244">
                </Location>
                <Location
-                  uuid = "72767C9E-417B-48FF-93F3-B3D98AACD622 - 442451ebaf5baea4"
+                  uuid = "72767C9E-417B-48FF-93F3-B3D98AACD622 - 9046727a8112e29f"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -620,8 +524,8 @@
             filePath = "ClassyDrives/View Controllers/DirectionMapVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "249"
-            endingLineNumber = "249"
+            startingLineNumber = "253"
+            endingLineNumber = "253"
             landmarkName = "showDirection(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -642,7 +546,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "7B8CE2AA-7D3C-49D5-A26B-08EA61407794 - 8baf6097f56fa6f7"
+                  uuid = "7B8CE2AA-7D3C-49D5-A26B-08EA61407794 - 56d367067a5c8fa6"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -657,7 +561,7 @@
                   offsetFromSymbolStart = "116">
                </Location>
                <Location
-                  uuid = "7B8CE2AA-7D3C-49D5-A26B-08EA61407794 - 6b820d85624d2448"
+                  uuid = "7B8CE2AA-7D3C-49D5-A26B-08EA61407794 - b6fe0a14ed7e0d7e"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -700,10 +604,10 @@
             filePath = "ClassyDrives/View Controllers/SignInVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "356"
-            endingLineNumber = "356"
-            landmarkName = "authorizationController(controller:didCompleteWithAuthorization:)"
-            landmarkType = "7">
+            startingLineNumber = "355"
+            endingLineNumber = "355"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -716,10 +620,10 @@
             filePath = "ClassyDrives/View Controllers/SignInVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "358"
-            endingLineNumber = "358"
-            landmarkName = "authorizationController(controller:didCompleteWithAuthorization:)"
-            landmarkType = "7">
+            startingLineNumber = "357"
+            endingLineNumber = "357"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -732,26 +636,10 @@
             filePath = "ClassyDrives/View Controllers/SignInVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "359"
-            endingLineNumber = "359"
-            landmarkName = "authorizationController(controller:didCompleteWithAuthorization:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A28F7E68-8987-4B69-8163-62401C6D4002"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ClassyDrives/View Controllers/LoginVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "286"
-            endingLineNumber = "286"
-            landmarkName = "authorizationController(controller:didCompleteWithError:)"
-            landmarkType = "7">
+            startingLineNumber = "358"
+            endingLineNumber = "358"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -764,153 +652,9 @@
             filePath = "ClassyDrives/View Controllers/LoginVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "320"
-            endingLineNumber = "320"
+            startingLineNumber = "323"
+            endingLineNumber = "323"
             landmarkName = "authorizationController(controller:didCompleteWithAuthorization:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "FA625F78-D6AC-4386-B75D-5E14603789D1"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ClassyDrives/View Controllers/Tab/HomeVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "226"
-            endingLineNumber = "226"
-            landmarkName = "curentRide()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "1E1C6A17-B03C-466C-9273-0AA86859FBD0"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ClassyDrives/View Controllers/LoginVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "302"
-            endingLineNumber = "302"
-            landmarkName = "authorizationController(controller:didCompleteWithAuthorization:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "865D136C-2D42-43CC-99C0-BF97BE65EF02"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ClassyDrives/ChatModule/ChatingVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
-            landmarkName = "getChat()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "865D136C-2D42-43CC-99C0-BF97BE65EF02 - e0b71b6caa37"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ClassyDrives.ChatingVC.getChat() -&gt; ()"
-                  moduleName = "ClassyDrives"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/taneja/Documents/LatestClassy/ClassyDrives%202%202/ClassyDrives/ChatModule/ChatingVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "97"
-                  endingLineNumber = "97"
-                  offsetFromSymbolStart = "221">
-               </Location>
-               <Location
-                  uuid = "865D136C-2D42-43CC-99C0-BF97BE65EF02 - 7bd394f976a22dce"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.FIRDataSnapshot) -&gt; () in ClassyDrives.ChatingVC.getChat() -&gt; ()"
-                  moduleName = "ClassyDrives"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/taneja/Documents/LatestClassy/ClassyDrives%202%202/ClassyDrives/ChatModule/ChatingVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "98"
-                  endingLineNumber = "98"
-                  offsetFromSymbolStart = "162">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "72C769DD-12BC-4205-A300-B05E046342D6"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ClassyDrives/ChatModule/ChatingVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
-            landmarkName = "getChat()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BB61BCC6-5BC4-4006-B2C9-5E66D6527531"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ClassyDrives/ChatModule/ChatingVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
-            landmarkName = "sendMessage()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4A9B1F50-7E74-4171-95A8-1F46F8FB2127"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ClassyDrives/View Controllers/OfferedRideDetailsVC1.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "685"
-            endingLineNumber = "685"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F7F27858-E423-4887-9A13-F509F97D7149"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ClassyDrives/OfferedRideDetailsVC2/OfferedRideDetailsVC2.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -933,16 +677,208 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "0B0DB489-7CCF-4375-8959-9245D4E486F5"
+            uuid = "ECC284C6-0BC2-4E48-93F8-CC73F618CBE3"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ClassyDrives/View Controllers/Tab/Offer Ride/RideDetailsVC.swift"
+            filePath = "ClassyDrives/View Controllers/SignInVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "310"
-            endingLineNumber = "310"
-            landmarkName = "pickerView(_:attributedTitleForRow:forComponent:)"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0DDA3D2C-44C9-4059-B41C-2EAD10583AE0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClassyDrives/View Controllers/NewRideVC/OfferedRideDetailsVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "734"
+            endingLineNumber = "734"
+            landmarkName = "acceptRejectRideApi(actionType:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8B6A4C84-3A4C-4093-BA55-65C53ACB1B33"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClassyDrives/UserLicenessVerifyVC1.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "383"
+            endingLineNumber = "383"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7C484526-994E-413D-9618-B2D5C16EACEA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClassyDrives/View Controllers/Tab/Find Ride/allRides.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
+            landmarkName = "findRide()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "699AA118-B1FC-4004-B7F0-FC05B94BA3C3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClassyDrives/OfferedRideDetailsVC2/OfferedRideDetailsVC2.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
+            landmarkName = "fromApiData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FF692C74-62B2-459F-A04C-A38E11A27328"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClassyDrives/View Controllers/OfferedRideDetailsVC1.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "684"
+            endingLineNumber = "684"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2D4068A5-464E-4B88-B7F0-22ADF93F5AEB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClassyDrives/View Controllers/OfferedRideDetailsVC1.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "457"
+            endingLineNumber = "457"
+            landmarkName = "mCancelBtnAct(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0D2D50FF-8156-4F93-BBBE-6C6EA1A17631"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClassyDrives/View Controllers/LoginVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "217"
+            endingLineNumber = "217"
+            landmarkName = "socialoginUser(email:socialtoken:firstname:lastname:loginType:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0D2D50FF-8156-4F93-BBBE-6C6EA1A17631 - ae946b57097a5b3e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ClassyDrives.LoginVC.socialoginUser(email: Swift.String, socialtoken: Swift.String, firstname: Swift.String, lastname: Swift.String, loginType: Swift.Int) -&gt; ()"
+                  moduleName = "ClassyDrives"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taneja/Documents/LatestClassy/ClassyDrives%202%202/ClassyDrives/View%20Controllers/LoginVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "217"
+                  endingLineNumber = "217"
+                  offsetFromSymbolStart = "1052">
+               </Location>
+               <Location
+                  uuid = "0D2D50FF-8156-4F93-BBBE-6C6EA1A17631 - c58f2d01d6bbad39"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Bool, Swift.Optional&lt;Swift.String&gt;, Swift.Optional&lt;Swift.String&gt;, Swift.Optional&lt;Swift.String&gt;, Swift.Optional&lt;__C.NSError&gt;) -&gt; () in ClassyDrives.LoginVC.socialoginUser(email: Swift.String, socialtoken: Swift.String, firstname: Swift.String, lastname: Swift.String, loginType: Swift.Int) -&gt; ()"
+                  moduleName = "ClassyDrives"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taneja/Documents/LatestClassy/ClassyDrives%202%202/ClassyDrives/View%20Controllers/LoginVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "218"
+                  endingLineNumber = "218"
+                  offsetFromSymbolStart = "638">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A3112760-2AC7-4E76-830B-05679300B0DD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClassyDrives/View Controllers/Tab/RideVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "423"
+            endingLineNumber = "423"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "28B35054-E3CA-44F8-8F65-5FAF4736E730"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClassyDrives/OfferedRideDetailsCurrentVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "407"
+            endingLineNumber = "407"
+            landmarkName = "rideDetails()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BDAA4585-37D5-4635-948F-D68BDF151BC6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClassyDrives/View Controllers/userVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

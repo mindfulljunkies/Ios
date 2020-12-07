@@ -18,7 +18,7 @@ class settingsVC: BaseVC {
     var image = [#imageLiteral(resourceName: "password"),#imageLiteral(resourceName: "name"),#imageLiteral(resourceName: "delete-bin"),#imageLiteral(resourceName: "logout")]
 //    "Privacy Policy","Terms","About",
     var name = ["Ride History","Help Center","Delete My Account","Logout"]
-    
+    var new_value:String = ""
     var naviArr = ["PrivacyVC","PrivacyVC","PrivacyVC","TermVC","AboutVC","AboutVC","AboutVC"]
      var currentLocation = CLLocation()
     var locationManager = CLLocationManager()
@@ -40,7 +40,7 @@ class settingsVC: BaseVC {
          let rideId = UserDefaults.standard.value(forKey: "rideID") as? String ?? ""
          let userId = UserDefaults.standard.value(forKey: "LoginID") as? String ?? ""
          Indicator.sharedInstance.showIndicator()
-                UserVM.sheard.panicApi(user_id: userId , ride_id: rideId, lattitude: latii, longitude: longi) { (success, message, error) in
+                UserVM.sheard.panicApi(user_id: userId , ride_id: new_value, lattitude: latii, longitude: longi) { (success, message, error) in
                     if error == nil{
                         Indicator.sharedInstance.hideIndicator()
                         if success{
@@ -67,8 +67,9 @@ class settingsVC: BaseVC {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.rideOnlineStatus { (status) in
+        self.rideOnlineStatus { (status,ride_id,m_booked) in
             if status{
+                self.new_value = ride_id
                 self.currentRideBtn.isHidden = false
                 self.sosBtn.isHidden = false
             }else{
@@ -104,17 +105,32 @@ class settingsVC: BaseVC {
         }
        func curentRide()
        {
-                     let story = self.storyboard?.instantiateViewController(withIdentifier: "OfferedRideDetailsVCID") as! OfferedRideDetailsVC
+                     
                   let rideId =   UserDefaults.standard.value(forKey: "rideID") as? String
                   let bookID =  UserDefaults.standard.value(forKey: "bookID") as? String
-        story.isFromView = true
 
-    //                 story.islocal = UserVM.sheard.allRidesDetails[0].bookedRide[indexPath.row].is_local_ride ?? ""
-                     story.rideId = rideId ?? ""
-                     story.bookid = bookID ?? ""
-    //                 story.isReceived = true
-         //            story.cancelReason = "usercancel"
-                     self.navigationController?.pushViewController(story, animated: true)
+     let story = self.storyboard?.instantiateViewController(withIdentifier: "OfferedRideDetailsCurrentVC") as! OfferedRideDetailsCurrentVC
+                             //   let rideId =   UserDefaults.standard.value(forKey: "rideID") as? String
+              //                  let bookID =  UserDefaults.standard.value(forKey: "bookID") as? String
+                      story.isFromView = true
+                  //                 story.islocal = UserVM.sheard.allRidesDetails[0].bookedRide[indexPath.row].is_local_ride ?? ""
+                      
+                     // if am_i_booked == "1"{
+                          story.bookid = ""
+                          //story.isFromCurrentRide = true
+                          story.rideId = new_value
+//                      }else{
+//                          story.rideId = new_value
+//                          //story.isFromCurrentRide = true
+//                          story.bookid  = ""
+//                      }
+                      
+                                 //  story.rideId = newRide
+                                   
+                  //                 story.isReceived = true
+                       //            story.cancelReason = "usercancel"
+                                   self.navigationController?.pushViewController(story, animated: true)
+                      
         }
     
     

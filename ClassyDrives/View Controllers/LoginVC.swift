@@ -101,6 +101,9 @@ class LoginVC: BaseVC,GIDSignInDelegate {
     @IBAction func forgetPassword(_ sender: Any) {
         let story = self.storyboard?.instantiateViewController(withIdentifier:"forgetPasswordVC") as! forgetPasswordVC
         self.navigationController?.pushViewController(story, animated: true)
+        
+              
+        
     }
     
     //MARK:- Google Integration
@@ -294,7 +297,7 @@ extension LoginVC: ASAuthorizationControllerDelegate {
         {
         case let credential as ASAuthorizationAppleIDCredential:
             
-            let email = credential.email
+            let email = credential.email ?? ""
             let appleUserFirstName = credential.fullName?.givenName ?? ""
             apple_id = credential.user
             

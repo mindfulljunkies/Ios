@@ -160,8 +160,12 @@ class DirectionMapVC: UIViewController , GMSMapViewDelegate ,  CLLocationManager
         let origin = positions.first!
         let destination = positions.last!
         var wayPoints = ""
-       
+        
+        
+        positions = positions.filter({ !(($0.latitude == 0.0) && ($0.longitude == 0.0)) })
         for point in positions {
+            
+            
             
             value = value + 1
             let marker = GMSMarker()
@@ -177,7 +181,7 @@ class DirectionMapVC: UIViewController , GMSMapViewDelegate ,  CLLocationManager
                                 break
              case 4: iconImage = "4"
                                 break
-            default: iconImage = "4"
+             default: iconImage = "4"
                 }
           
                

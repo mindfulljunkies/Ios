@@ -17,10 +17,11 @@ class ChatVC: BaseVC {
     @IBOutlet weak var sosBtn: UIButton!
     @IBOutlet var chatTable: UITableView!
     var ref: DatabaseReference!
-       var userID = String()
+    var userID:String = ""
+    fileprivate var new_value:String = ""
     var chatList = [Chat]()
-         var currentLocation = CLLocation()
-        var locationManager = CLLocationManager()
+    var currentLocation = CLLocation()
+    var locationManager = CLLocationManager()
         var myLocationLat:String?
         var myLocationLng:String?
       func sosCall()
@@ -39,7 +40,7 @@ class ChatVC: BaseVC {
              let rideId = UserDefaults.standard.value(forKey: "rideID") as? String ?? ""
              let userId = UserDefaults.standard.value(forKey: "LoginID") as? String ?? ""
              Indicator.sharedInstance.showIndicator()
-                    UserVM.sheard.panicApi(user_id: userId , ride_id: rideId, lattitude: latii, longitude: longi) { (success, message, error) in
+                    UserVM.sheard.panicApi(user_id: userId , ride_id: new_value, lattitude: latii, longitude: longi) { (success, message, error) in
                         if error == nil{
                             Indicator.sharedInstance.hideIndicator()
                             if success{
@@ -66,15 +67,19 @@ class ChatVC: BaseVC {
         }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.rideOnlineStatus { (status) in
+        self.rideOnlineStatus { (status,ride_id,m_booked) in
             if status{
+                self.new_value = ride_id
                 self.currentRideBtn.isHidden = false
                 self.sosBtn.isHidden = false
+                self.currentRideView.isHidden = false
             }else{
                 self.currentRideBtn.isHidden = true
                 self.sosBtn.isHidden = true
+                self.currentRideView.isHidden = true
             }
         }
+        getChatHistory()
 //        let status =  self.rideOnlineStatus()
 //        //        let rideId =   UserDefaults.standard.value(forKey: "rideID") as? String
 //        //        let bookID =  UserDefaults.standard.value(forKey: "bookID") as? String
@@ -93,7 +98,7 @@ class ChatVC: BaseVC {
         super.viewDidLoad()
         userID = UserDefaults.standard.value(forKey: "LoginID") as? String ?? ""
 
-       getChatHistory()
+       
     }
     
         @IBAction func currentRideBtnAction(_ sender: Any) {
@@ -104,17 +109,32 @@ class ChatVC: BaseVC {
         }
        func curentRide()
        {
-                     let story = self.storyboard?.instantiateViewController(withIdentifier: "OfferedRideDetailsVCID") as! OfferedRideDetailsVC
+                     
                   let rideId =   UserDefaults.standard.value(forKey: "rideID") as? String
                   let bookID =  UserDefaults.standard.value(forKey: "bookID") as? String
-        story.isFromView = true
 
-    //                 story.islocal = UserVM.sheard.allRidesDetails[0].bookedRide[indexPath.row].is_local_ride ?? ""
-                     story.rideId = rideId ?? ""
-                     story.bookid = bookID ?? ""
-    //                 story.isReceived = true
-         //            story.cancelReason = "usercancel"
-                     self.navigationController?.pushViewController(story, animated: true)
+     let story = self.storyboard?.instantiateViewController(withIdentifier: "OfferedRideDetailsCurrentVC") as! OfferedRideDetailsCurrentVC
+                             //   let rideId =   UserDefaults.standard.value(forKey: "rideID") as? String
+              //                  let bookID =  UserDefaults.standard.value(forKey: "bookID") as? String
+                      story.isFromView = true
+                  //                 story.islocal = UserVM.sheard.allRidesDetails[0].bookedRide[indexPath.row].is_local_ride ?? ""
+                      
+                     // if am_i_booked == "1"{
+                          story.bookid = ""
+                          //story.isFromCurrentRide = true
+                          story.rideId = new_value
+//                      }else{
+//                          story.rideId = new_value
+//                          //story.isFromCurrentRide = true
+//                          story.bookid  = ""
+//                      }
+                      
+                                 //  story.rideId = newRide
+                                   
+                  //                 story.isReceived = true
+                       //            story.cancelReason = "usercancel"
+                                   self.navigationController?.pushViewController(story, animated: true)
+                      
         }
     func getChatHistory(){
       
@@ -139,10 +159,17 @@ class ChatVC: BaseVC {
                                 print(valueofKey)
                                 let occupId = valueofKey["occupant_id"] as? String
                                 let convertToArray = occupId?.components(separatedBy: ",")
-                                if (convertToArray?.contains(self.userID))!{
-                                    print("yes")
-                                   let chatDict = Chat.init(dictionary: valueofKey)
-                                    self.chatList.append(chatDict!)
+                                if let id =  (convertToArray?.contains(self.userID)){
+                                    
+                                    if id{
+                                        print("yes")
+                                       let chatDict = Chat.init(dictionary: valueofKey)
+                                        if let chatData = chatDict{
+                                            self.chatList.append(chatData)
+                                        }
+                                    }
+                                   
+                                    
                                 }
                              //   let idOccu = valueofKey
                                // self.chatobjectarray.add(snap.value!)
@@ -168,9 +195,35 @@ extension ChatVC : UITableViewDelegate, UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell") as! TableViewCell
         let chatListArray = chatList[indexPath.row]
         for i in 0..<chatListArray.user_data!.count{
-            if chatListArray.user_data![i].userid! != userID{
+            if chatListArray.user_data![i].userid ?? "" != userID{
+                
             let ArrayUser = chatListArray.user_data![i]
-            cell.userName.text = ArrayUser.user_name
+                
+                
+                if let timeResult = Double(chatListArray.last_message_timeStamp!) {
+                    let date = Date(timeIntervalSince1970: timeResult/1000)
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.timeStyle = DateFormatter.Style.short //Set time style
+        //            dateFormatter.dateStyle = DateFormatter.Style.medium //Set date style
+                    dateFormatter.timeZone = .current
+                    let localDate = dateFormatter.string(from: date)
+                    cell.timeLbl.text = localDate
+                }
+                
+             
+                
+                
+                
+                
+                cell.userName.text = ArrayUser.user_name ?? ""
+                cell.msgLbl.text = chatListArray.last_message ?? ""
+                
+                
+                let url = ArrayUser.user_image ?? ""
+                
+                cell.userImg.sd_setImage(with: URL(string: url))
+                
+                
             }
         }
         return cell
