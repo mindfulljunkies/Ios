@@ -15,6 +15,8 @@ import Firebase
 import TwitterKit
 import FirebaseCrashlytics
 import UserNotificationsUI
+import FirebaseInstanceID
+import FirebaseMessaging
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDelegate,MessagingDelegate {
 
@@ -50,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
        
         
         GIDSignIn.sharedInstance().clientID = "724312618163-9jcikfo2ru7phqdlktj5qc0kon5hdjnl.apps.googleusercontent.com"
-        
+        coonectFCM()
        return true
     }
 
@@ -108,9 +110,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
             self.window?.rootViewController = navigationController
             self.window?.makeKeyAndVisible()
         }
-        
-       
-      }
+     }
+    
+    
     func registerForPushNotifications() {
         UNUserNotificationCenter.current().delegate = self
         UNUserNotificationCenter.current()
@@ -149,18 +151,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
       print("Firebase registration token: \(fcmToken)")
 
-      InstanceID.instanceID().instanceID { result, error in
-          if let error = error {
-              print("Error fetching remote instance ID: \(error)")
-          } else if let result = result {
-              print("Remote instance ID token: \(result.token)")
-            
-           // instanceToken  = result.token
-          }
-      }
+        coonectFCM()
     }
 
-    
+    func coonectFCM() {
+        InstanceID.instanceID().instanceID { result, error in
+            if let error = error {
+                print("Error fetching remote instance ID: \(error)")
+            } else if let result = result {
+                print("Remote instance ID token: \(result.token)")
+              
+              instanceToken  = result.token
+            }
+        }
+    }
     func application(
       _ application: UIApplication,
       didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data
@@ -170,7 +174,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
      guard let refreshedToken = Messaging.messaging().fcmToken else{return}
          print("FCM token retrieved: \(refreshedToken)")
          
-     instanceToken = refreshedToken
+     //instanceToken = refreshedToken
          }
 
     func application(
@@ -178,7 +182,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
       didFailToRegisterForRemoteNotificationsWithError error: Error) {
       print("Failed to register: \(error)")
     }
-    
 }
 
 extension AppDelegate{

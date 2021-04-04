@@ -15,6 +15,8 @@ enum UserServices: APIService{
     case Register(firstname: String, lastname: String, email: String, password: String, device_type: String, device_token: String, dob: String, city: String, state: String, zip: String, bio: String, mobile: String,apple_id:String)
     case ForgetPassword(email: String)
     case State
+    
+    case State1
     case City(state_id: String)
     case CreateRide(ride_user: String, ride_from_address: String, ride_to_address: String, ride_from_lat: String, ride_from_long: String, ride_to_lat: String, ride_to_long: String, ride_from_address2: String, ride_from_lat2: String, ride_from_long2: String, ride_from_address3: String, ride_from_lat3: String, ride_from_long3: String, ride_date: String, ride_time: String, ride_amount: String, ride_seat: String, ride_about: String, car_id: String, detour: String,is_local_ride : String,current_time : String,is_autoapproval : String)
 
@@ -33,7 +35,9 @@ enum UserServices: APIService{
     case UserNotificationsDelete(userid: String,notif : String)
 
     case AddCard(user_id: String, card_number: String, exp_month: String, cvv: String, exp_year: String,card_type: String)
-    case AddBank(user_id: String, routing_number: String, account_number: String)
+    case AddBank(user_id: String, routing_number: String, account_number: String,line1: String,line2: String,ssn: String,ssn_last_4: String,city: String,state: String,postal_code: String,dob: String)
+    
+   
     case ManageRide(user_id: String)
     case BookRideDetail(user_id: String, ride_id: String, book_id: String)
     case DeleteBank(user_id: String, bank_id: String)
@@ -92,6 +96,10 @@ case deleteUser(user_id : String,reason : String,comment : String)
             path = BASE_URL.appending("forget_password")
             case .State:
             path = BASE_URL.appending("stateDetail")
+        case .State1:
+        path = BASE_URL.appending("usstatelist")
+                
+                
             
         case .City:
             path = BASE_URL.appending("cityDetail")
@@ -263,6 +271,9 @@ case deleteUser(user_id : String,reason : String,comment : String)
         case .State:
             resource = Resource(method: .get, parameters: nil, headers: nil)
             
+        case .State1:
+            resource = Resource(method: .get, parameters: nil, headers: nil)
+            
         case let .City(state_id):
             parameterDict[APIKeys.kstate_id] = state_id
             resource = Resource(method: .post, parameters: parameterDict, headers: nil)
@@ -339,10 +350,20 @@ case deleteUser(user_id : String,reason : String,comment : String)
             parameterDict[APIKeys.kcard_type] = card_type
             resource = Resource(method: .post, parameters: parameterDict, headers: nil)
             
-        case let .AddBank(user_id, routing_number, account_number):
+        case let .AddBank(user_id, routing_number, account_number,line1,line2,ssn,ssn_last_4,city,state,postal_code,dob):
             parameterDict[APIKeys.kuser_id] = user_id
             parameterDict[APIKeys.krouting_number] = routing_number
-            parameterDict[APIKeys.kaccount_number] = account_number
+            parameterDict["account_number"] = account_number
+            parameterDict["line1"] = line1
+            parameterDict["line2"] = line2
+            
+            parameterDict["ssn"] = ssn
+            parameterDict["ssn_last_4"] = ssn_last_4
+            parameterDict["city"] = city
+            parameterDict["state"] = state
+            parameterDict["postal_code"] = postal_code
+            parameterDict["dob"] = dob
+            
             resource = Resource(method: .post, parameters: parameterDict, headers: nil)
             
         case let .ManageRide(user_id):
@@ -679,6 +700,20 @@ extension APIManager{
         }, failure: failureCallback)
     }
     
+    
+    
+    
+    class func stateDetail1(successCallback: @escaping JSONDictionaryResponseCallback, failureCallback: @escaping APIServiceFailureCallback) {
+        UserServices.State1.request(success: { (response) in
+            if let responseDict = response as? JSONDictionary {
+                successCallback(responseDict)
+            }
+            else {
+                successCallback([:])
+            }
+        }, failure: failureCallback)
+    }
+    
     class func cityDetail(state_id: String, successCallback: @escaping JSONDictionaryResponseCallback, failureCallback: @escaping APIServiceFailureCallback) {
         UserServices.City(state_id: state_id).request(success: { (response) in
             if let responseDict = response as? JSONDictionary {
@@ -797,8 +832,8 @@ extension APIManager{
         }, failure: failureCallback)
     }
     
-    class func addBankStrip(user_id: String, routing_number: String, account_number: String, successCallback: @escaping JSONDictionaryResponseCallback, failureCallback: @escaping APIServiceFailureCallback) {
-        UserServices.AddBank(user_id: user_id, routing_number: routing_number, account_number: account_number).request(success: { (response) in
+    class func addBankStrip(user_id: String, routing_number: String, account_number: String, line1: String,line2: String,ssn: String,ssn_last_4: String,city: String,state: String,postal_code: String,dob: String,successCallback: @escaping JSONDictionaryResponseCallback, failureCallback: @escaping APIServiceFailureCallback) {
+        UserServices.AddBank(user_id: user_id, routing_number: routing_number, account_number: account_number,line1: line1,line2: line2,ssn: ssn,ssn_last_4: ssn_last_4,city: city,state: state,postal_code: postal_code,dob: dob).request(success: { (response) in
             if let responseDict = response as? JSONDictionary {
                 successCallback(responseDict)
             }else {

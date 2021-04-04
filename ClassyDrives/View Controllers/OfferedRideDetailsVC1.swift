@@ -302,14 +302,19 @@ class OfferedRideDetailsVC1: BaseVC {
         print(time12)
         return time12
     }
+    
+    fileprivate func getData(){
+    rideDetails()
+    fromApiData()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
      if  isFromRide  == true
      {
         mTableVw.isHidden = true
         }
-        rideDetails()
-        fromApiData()
+        getData()
 self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
@@ -377,14 +382,13 @@ self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .def
                     let smallestString = String(smallest)
                     let bookString = String(booking_id)
                     let value = largestString + smallestString + bookString
-                    print(value)
-                    
-                    
-                    let prntRef  = Database.database().reference().child("ChatHistory").child("\(value)")
+                  
+                     let prntRef  = Database.database().reference().child("ChatHistory").child("\(value)")
                         prntRef.removeValue { error, _ in
                             
                             print(error)
                         }
+                    self.cancelBtn.setTitle("Give Feedback", for: .normal)
                     
                 self.showAlert(message: message)
                     

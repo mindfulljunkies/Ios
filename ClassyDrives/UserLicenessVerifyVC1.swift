@@ -211,7 +211,14 @@ class UserLicenessVerifyVC1:BaseVC {
     func datePickerView(){
         self.date.datePickerMode = .date
         self.date.backgroundColor = .black
+        
         self.date.setValue(UIColor.white, forKeyPath: "textColor")
+        if #available(iOS 14.0, *) {
+            self.date.preferredDatePickerStyle = .wheels
+            
+        } else {
+            // Fallback on earlier versions
+        }
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         toolbar.backgroundColor = .black

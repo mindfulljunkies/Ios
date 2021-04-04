@@ -12,7 +12,7 @@ import FBSDKLoginKit
 import FBSDKCoreKit
 import TwitterKit
 import AuthenticationServices
-
+import Firebase
 class LoginVC: BaseVC,GIDSignInDelegate {
     @IBOutlet var emailTF: UITextField!
     @IBOutlet var nextBtn: UIButton!
@@ -181,6 +181,9 @@ class LoginVC: BaseVC,GIDSignInDelegate {
 extension LoginVC {
     func loginUser( ) {
         Indicator.sharedInstance.showIndicator()
+        
+       
+        
         UserVM.sheard.loginUser(login_type: 0, email: emailTF.text!, password: passwordTF.text!, device_type: "ios", device_token: instanceToken, device_id: "") { (success, message, error) in
             if error == nil{
                 Indicator.sharedInstance.hideIndicator()

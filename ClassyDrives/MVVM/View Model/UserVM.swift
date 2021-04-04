@@ -13,6 +13,7 @@ class UserVM {
     public static let sheard = UserVM()
     
     var stateDetails = [states]()
+    var stateDetails1 = [states]()
     var cityDetails = [citys]()
     var allRideDetails = [allRide]()
     var carDetails = [carDetail]()
@@ -162,6 +163,26 @@ class UserVM {
             response(false, nil, APIManager.errorForNetworkErrorReason(errorReason: errorReason!))
         }
     }
+    
+    
+    
+    func state1(response: @escaping responseCallBack) {
+        APIManager.stateDetail1(successCallback: { (responseDict) in
+            let success = responseDict?[APIKeys.kstatus] as! Int
+            let message = responseDict?[APIKeys.kmessage] as? String
+            if success == 1{
+                print(responseDict)
+                self.parseStateData1(responseDict: responseDict!)
+                response(true, message, nil)
+            }else{
+                response(false, message, nil)
+            }
+        }) { (errorReason, error) in
+            response(false, nil, APIManager.errorForNetworkErrorReason(errorReason: errorReason!))
+        }
+    }
+    
+    
     
     func city(state_id: String, response: @escaping responseCallBack) {
         APIManager.cityDetail(state_id: state_id, successCallback: { (responseDict) in
@@ -334,8 +355,8 @@ class UserVM {
         }
     }
     
-    func addBank(user_id: String, routing_number: String, account_number: String, response: @escaping responseCallBack) {
-        APIManager.addBankStrip(user_id: user_id, routing_number: routing_number, account_number: account_number, successCallback: { (responseDict) in
+    func addBank(user_id: String, routing_number: String, account_number: String, line1: String,line2: String,ssn: String,ssn_last_4: String,city: String,state: String,postal_code: String,dob: String,response: @escaping responseCallBack) {
+        APIManager.addBankStrip(user_id: user_id, routing_number: routing_number, account_number: account_number,line1: line1,line2: line2,ssn: ssn,ssn_last_4: ssn_last_4,city: city,state: state,postal_code: postal_code,dob: dob, successCallback: { (responseDict) in
             let success = responseDict?[APIKeys.kstatus] as! Int
             let message = responseDict?[APIKeys.kmessage] as? String
             if success ==  1{

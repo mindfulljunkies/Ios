@@ -366,6 +366,20 @@ extension UserVM{
         }
     }
     
+    
+    
+    
+    func parseStateData1(responseDict : JSONDictionary) {
+        if let json = responseDict["data"] as? [NSDictionary]{
+            for sData in json{
+                let id = sData.value(forKey: APIKeys.kID) as? String ?? ""
+                let code = sData.value(forKey: APIKeys.kSTATE_CODE) as? String ?? ""
+                let name = sData.value(forKey: APIKeys.kSTATE_NAME) as? String ?? ""
+                stateDetails1.append(states.init(id: id, sCode: code, sName: name))
+            }
+        }
+    }
+    
     func parseCityData(responseDict : JSONDictionary) {
         if let json = responseDict["data"] as? [NSDictionary]{
             for cData in json{

@@ -33,6 +33,13 @@ class userVC: BaseVC, UITextFieldDelegate{
     override func viewWillAppear(_ animated: Bool) {
         date.datePickerMode = UIDatePicker.Mode.date
         let dateFormatter = DateFormatter()
+        if #available(iOS 14.0, *) {
+            self.date.preferredDatePickerStyle = .wheels
+            
+        } else {
+            // Fallback on earlier versions
+        }
+
         dateFormatter.dateFormat = "MMMM dd yyyy"
         date.maximumDate = Date()
     }

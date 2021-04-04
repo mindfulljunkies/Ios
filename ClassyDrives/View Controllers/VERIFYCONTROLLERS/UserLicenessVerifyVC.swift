@@ -89,6 +89,12 @@ class UserLicenessVerifyVC: BaseVC {
         self.date.setValue(UIColor.white, forKeyPath: "textColor")
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
+        if #available(iOS 14.0, *) {
+            self.date.preferredDatePickerStyle = .wheels
+            
+        } else {
+            // Fallback on earlier versions
+        }
         toolbar.backgroundColor = .black
         dateofBirthTxt.inputAccessoryView = toolbar
         dateofBirthTxt.inputView = self.date
